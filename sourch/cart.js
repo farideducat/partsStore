@@ -47,7 +47,7 @@ let calculation = () => {
       shoppingCart.innerHTML = ``;
       label.innerHTML = `
       <h2>CART IS EMPTY</h2>
-      <a href="/indx.html">
+      <a href="/index.html">
     <button class="HomeBtn">Back To HomePage</button>
 </a>
       `;

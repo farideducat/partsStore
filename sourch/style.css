@@ -67,7 +67,7 @@ a{
 }
 @media (max-width: 500px){
     .shop{
-        grid-template-columns: repeat(2, 200px);  
+        grid-template-columns: repeat(1, 200px);  
     }
 }
 

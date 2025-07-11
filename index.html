@@ -28,13 +28,62 @@
 
         
     </div>
-       <!-- for copy the website address
-    <p id="text">auto parts.com</p>
-    <p><button id="copy" onclick="handleClick()">copy</button></p> -->
+ 
+     <section class="contact">
+         <h3>Contact Me!</h3>
+
+           <form id="form" action="#">
+
+            <div class="input-box">
+
+                 <div class="input-field field">
+                 <input type="text" placeholder="Full name" id="name" name="form_name" class="item" autocomplete="off">
+                 <div class="tex-error">Name Can't be blank</div>
+                </div>
+
+                <div class="input-field field">
+                 <input type="text" placeholder="Email Address" id="email" name="form_email" class="item" autocomplete="off">
+                  <div class="tex-error">Email Can't be blank</div>
+                </div>
+
+               </div>
+
+
+            <div class="input-box">
+
+                 <div class="input-field field">
+                  <input type="text" placeholder="Phone Number" id="phone" name="form_phone" class="item" autocomplete="off">
+                   <div class="tex-error">Phone Number Can't be blank</div>
+              </div>
+
+                <div class="input-field field">
+                   <input type="text" placeholder=" Plesase Describe the Subject" id="subject" name="subject" class="item" autocomplete="off">
+                    <div class="tex-error">Subject Can't be blank</div>
+                </div>
+             </div>
+
+              <div class="textarea-field field">
+               <textarea  placeholder="Your message" 
+               id="message" name="message" class="item" cols="30" rows="10" autocomplete="off"></textarea>
+                <div class="tex-error">Message Can't be blank</div>
+              </div>
+
+              <button type="submit">Send Message</button>
+           </form>
+
+      </section>
   
 
 </body>
   <script src="sourch/data.js"></script>
   <script src="sourch/main.js"></script>
 
+  <script  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="" src="/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </html>
+
+
+      

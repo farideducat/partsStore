@@ -61,12 +61,12 @@ a{
 
 @media (max-width: 1000px){
     .shop{
-        grid-template-columns: repeat(2, 200px);  
+        grid-template-columns: repeat(3, 200px);  
     }
 }
 @media (max-width: 500px){
     .shop{
-        grid-template-columns: repeat(1, 200px);  
+        grid-template-columns: repeat(2, 200px);  
     }
 }
 
@@ -178,3 +178,95 @@ a{
     padding: 3px, 6px;
     font: bolder;
 }
+
+
+
+
+
+  .contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #0f0f0f;
+  }
+
+  .contact h3{
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+  }
+
+ .contact form{
+width: 600px;
+text-align: center;
+ }
+
+ form .input-box{
+  display: flex;
+  justify-content: space-between;
+ }
+ 
+ .input-box .input-field{
+  width: 48.5%;
+ }
+.field .tex-error{
+  font-size: 14px;
+  color: white;
+   text-align: left;
+   margin:-5px 0 12px;
+   display: none;
+}
+
+.field.error .tex-error{
+  display: block;
+}
+
+ form .textarea-field  .tex-error{
+  margin-top: -10px;
+ }
+
+ .field .item{
+  width: 100%;
+  padding: 18px;
+  border: 2px solid white;
+  border-radius: 6px;
+  outline: none;
+  font-size: 16px;
+  color: #dbe1d1;
+  margin: 12px 0;
+  background-color: transparent;
+ }
+.field.error .item{
+    border-color: crimson;
+}
+
+ .field .item::placeholder{
+  color: rgba(206, 206, 206, 3);
+ }
+
+ form .textarea-field .item{
+  resize: none;
+ }
+ form button{
+  padding: 12px 32px;
+  background-color: #1ec17b;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #1ec17b ;
+  font-size: 16px;
+  color: whitesmoke;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: .5s;
+
+ }
+
+  form button:hover{
+    box-shadow: none;
+  }

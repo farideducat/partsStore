@@ -3,6 +3,7 @@ emailjs.init("1tbaOyhaRyOoFYGyc");
 
 const form =  document.querySelector('form');
 
+const email =  document.getElementById('email');
 
 
 
@@ -53,7 +54,16 @@ function checkInputs(){
     if (item.value == ""){
       item.classList.add("error")
       item.parentElement.classList.add("error")
-    }
+    }    
+
+             if (items[1].value != ""){
+                 checkEmail()
+             }
+            items[1].addEventListener("keyup", () => {
+                      checkEmail();
+            })
+
+
         item.addEventListener("keyup", () => {
            if (item.value != ""){
             item.classList.remove("error");
@@ -66,6 +76,19 @@ function checkInputs(){
         });
    }
 }   
+
+
+function checkEmail() {
+  const emailRegex = /^[a-zA-Z0-9.\-+]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,3}$/;
+
+  if (!email.value.match(emailRegex )){
+     email.classList.add("error")
+      email.parentElement.classList.add("error")
+  } else{
+       email.classList.remove("error")
+        email.parentElement.classList.remove("error")
+  }
+}
 
 
 

@@ -54,7 +54,7 @@ a{
 .shop {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 30px;
+  gap: 10px;
   justify-content: center;
   margin-bottom: 50px;
   padding: 0 10px;
@@ -62,12 +62,12 @@ a{
 
 @media (max-width: 1000px){
     .shop{
-        grid-template-columns: repeat(2, 200px);  
+       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
 }
-@media (max-width: 500px){
+@media (max-width: 200px){
     .shop{
-        grid-template-columns: repeat(1, 200px);  
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
 }
 

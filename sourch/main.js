@@ -4,30 +4,46 @@ let shop = document.getElementById("shop");
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 let generatorShop = () => {
-  shop.innerHTML = shopItemsData
-    .map((x) => {
+  shop.innerHTML = "";
+
+    shopItemsData.forEach((x) => {
       let { id, name, price, description, img } = x;
       let search = basket.find((y) => y.id === id) || [];
-      return `
-      <div id=product-id-${id} class="items">
-        <img src=${img} alt="">
+           
+      //create the product card element
+      let itemDiv = document.createElement("div");
+      itemDiv.id = `product-id-${id}`;
+      itemDiv.classList.add("items")
+
+     itemDiv.innerHTML = `
+        <img src=${img} alt="name">
           <div class="details">
             <h3>${name}</h3>
-             <p>${description}</p>
+             <p>${description.substring(0, 70)}...</p>
                <div class="price-quantity">
-                 <h2>${price}</h2>
+                 <h2>${price} OMR </h2>
                    <div class="buttons">
                  <i onclick="decreement(${id})" class="bi bi-dash-lg"></i>
                 <div id="${id}" class="quantity">
                ${search.item === undefined? 0 : search.item}
                </div>
               <i onclick="increement(${id})" class="bi bi-plus-lg"></i>
-            </div>
           </div>
         </div>
-      </div>`;
-    })
-    .join("");
+      </div>
+      `;
+               // Add a click event listener to the entire product card
+                 // If it's from the quantity buttons, we don't want to navigate
+          itemDiv.addEventListener('click', (event) => {
+              if(!event.target.closest('.buttons')){
+                window.location.href = `product-details.html?id=${id}`;
+            
+              }
+          });
+          shop.appendChild(itemDiv);
+
+    });
+    
 };
 
 generatorShop();

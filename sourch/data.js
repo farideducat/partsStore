@@ -4,7 +4,7 @@ let shopItemsData = [
     name: "hyundai ignition coil",
     price: "7",
     description:
-      "OEM: 273012b010 High-performance original ignition coils – directly from a certified Korean factory (Waqalah standard) fit for kia rio,  hyundai accent,  kia careto, elentra , all 1.6cc engine!"
+      "OEM: 273012b010 High-performance original ignition coils fit for kia rio,  hyundai accent,  kia careto, elentra , all 1.6cc engine!"
     ,
     img: "images/coil1.jpg",
   },
@@ -13,7 +13,7 @@ let shopItemsData = [
     id: "fjnfn",
     name: "kia",
     price: "7",
-    description: "OEM: 273002E000 High-performance original ignition coils – directly from a certified Korean factory (Waqalah standard) fit for hyundai elentra,  hyundai sonata, all 1.8cc 2.00cc engine!"
+    description: "OEM: 273002E000 fit for hyundai elentra,  hyundai sonata, all 1.8cc 2.00cc engine!"
    , img: "images/coil2.jpg",
   },
 
@@ -37,7 +37,7 @@ let shopItemsData = [
     name: "hyundai kia ac compressor sensor valve",
     price: "11.5",
     description:
-     "CAR AC Compressor A/C Solenoid Valve Control for Hyundai Accent Genesi Tucson KIA Rio 976742S000 97674-2S000",
+     "CAR AC Compressor A/C Solenoid Valve Control for Hyundai",
     img: "images/coil5.jpg",
   },
 
@@ -70,7 +70,7 @@ let shopItemsData = [
     name: "hyundai ignition coil",
     price: "7",
     description:
-      "🚗 High-performance original ignition coils – directly from a certified Korean factory (Waqalah standard)",
+      "🚗 High-performance original ignition coils ",
     img: "images/coil1.jpg",
   },
 
@@ -107,7 +107,7 @@ let shopItemsData = [
     name: "hyundai ignition coil",
     price: "7",
     description:
-      "🚗 High-performance original ignition coils – directly from a certified Korean factory (Waqalah standard)",
+      "🚗 High-performance original ignition coils ",
     img: "images/doorHndle9.png",
   },
 
@@ -134,6 +134,5 @@ let shopItemsData = [
     description: "(Waqalah standard ignition coil)",
     img: "images/coil12.png",
   },
-
 
 ];

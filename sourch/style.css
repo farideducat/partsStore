@@ -282,3 +282,105 @@ form .input-box {
   form button:hover{
     box-shadow: none;
   }
+
+
+
+
+
+  /* --- Product Details Page Styling --- */
+
+.product-detail-container {
+    padding: 40px 20px;
+    max-width: 900px; /* Adjust as needed */
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex; /* Use flexbox for image and info side-by-side */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px; /* Space between image and info */
+    justify-content: center; /* Center content horizontally */
+}
+
+.single-product-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    justify-content: center;
+}
+
+.product-image-area {
+    flex: 1; /* Allow image area to grow */
+    min-width: 300px; /* Minimum width before wrapping */
+    max-width: 450px; /* Max width for image */
+    text-align: center;
+    border: 1px solid #eee; /* Light border for image container */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.product-detail-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Limit image height */
+    object-fit: contain; /* Ensures entire image is visible */
+    border-radius: 8px;
+}
+
+.product-info-area {
+    flex: 2; /* Allow info area to grow more */
+    min-width: 300px; /* Minimum width before wrapping */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes content apart */
+}
+
+.product-detail-name {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.product-detail-price {
+    font-size: 1.8rem;
+    color: #28a745; /* Green for price */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-detail-price span {
+    font-size: 2.2rem; /* Make the price number slightly larger */
+}
+
+.product-detail-description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-detail-container {
+        flex-direction: column; /* Stack image and info vertically */
+        padding: 20px 15px;
+        gap: 20px;
+    }
+    .product-image-area,
+    .product-info-area {
+        min-width: unset; /* Remove min-width constraints */
+        width: 100%; /* Take full width on small screens */
+    }
+    .product-detail-name {
+        font-size: 1.8rem;
+    }
+    .product-detail-price {
+        font-size: 1.5rem;
+    }
+    .product-detail-price span {
+        font-size: 1.8rem;
+    }
+}

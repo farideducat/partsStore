@@ -383,3 +383,41 @@ form .input-box {
         font-size: 1.8rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- WhatsApp Button Styling --- */
+.whatsapp-order-btn {
+    display: inline-flex; /* Allows icon and text to sit nicely */
+    align-items: center; /* Vertically centers icon and text */
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-order-btn i {
+    font-size: 1.5rem; /* Size of the WhatsApp icon */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.whatsapp-order-btn:hover {
+    background-color: #1DA851; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}

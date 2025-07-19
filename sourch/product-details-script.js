@@ -16,7 +16,11 @@ const productDetailContainer = document.getElementById('product-detail-container
          // Find the product in your shopItemsData array (from data.js)
           const product = shopItemsData.find(item => item.id === productId);
 
-
+   // Check if the product was found
+    if (!product) {
+        productDetailContainer.innerHTML = `<p>Product with ID "${productId}" not found. Please go back to the <a href="index.html">shop</a>.</p>`;
+        return; // Stop execution if product not found
+    }
 
            // If product is found, populate the container with its details
            productDetailContainer.innerHTML = `
@@ -33,8 +37,8 @@ const productDetailContainer = document.getElementById('product-detail-container
                         </div>
 
                       <div class="price-quantity">
-                            <div class="button">
-                                 <i onclick="decreement('${product.id}')" class="bi bi-dash-lg"></i>
+                            <div class="buttons">
+                                  <i onclick="decreement('${product.id}')" class="bi bi-dash-lg"></i> 
                                    <div id="${product.id}" class="quantity">
                                     ${(basket.find(x => x.id === product.id)?.item || 0)}
                                   </div>
@@ -45,8 +49,12 @@ const productDetailContainer = document.getElementById('product-detail-container
                     </div>
                  </div>
             `;
-         
- }
+        
+   }
                  // Part 4: Call the function when the page loads
                 document.addEventListener('DOMContentLoaded', displayProductDetails);
+              
+
+
+
 

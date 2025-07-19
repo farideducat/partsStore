@@ -316,7 +316,6 @@ form .input-box {
     max-width: 450px; /* Max width for image */
     text-align: center;
     border: 1px solid #eee; /* Light border for image container */
-    border-radius: 8px;
     overflow: hidden;
 }
 
@@ -325,7 +324,7 @@ form .input-box {
     height: auto;
     max-height: 400px; /* Limit image height */
     object-fit: contain; /* Ensures entire image is visible */
-    border-radius: 8px;
+   
 }
 
 .product-info-area {

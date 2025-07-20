@@ -423,8 +423,10 @@ form .input-box {
 }
 
 
- navbar styling*/
-.navbar {
+
+
+
+ .navbar {
     display: flex;
     /* Updated to space-between to push items to edges */
     justify-content: space-between; 
@@ -432,21 +434,22 @@ form .input-box {
     background-color: #212529;
     color: azure;
     padding: 15px 30px; /* Reduced padding for more compact look */
-    /* Removed margin-bottom as search is now inside */
+    
 }
 
 /* NEW: Integrated Search Bar Styling */
 .search-bar-integrated {
     display: flex;
     align-items: center;
-    flex-grow: 1; /* Allows search bar to take available space */
-    max-width: 600px; /* Max width for larger screens */
-    margin: 0 20px; /* Margin on left/right to separate from text/cart */
+    flex-grow: 1;
+    max-width: 700px; /* Max width for larger screens */
+    margin: 0px 20px; /* Margin on left/right to separate from text/cart */
     background-color: #ffffff; /* White background for search area */
     border-radius: 20px; /* Rounded corners */
     overflow: hidden; /* Ensures content stays within rounded corners */
     height: 40px; /* Fixed height for the search bar container */
 }
+
 
 .search-bar-integrated #searchInput {
     border: none;
@@ -462,15 +465,16 @@ form .input-box {
     color: #888;
 }
 
+
 .search-bar-integrated #searchButton {
     background-color: black; /* AliExpress orange-red */
     color: white;
     border: none;
-    padding: 0 15px;
+    padding: 15px 15px;
     cursor: pointer;
     font-size: 1.1rem; /* Slightly larger icon */
     height: 100%; /* Button takes full height */
-    border-radius: 0 20px 20px 0; /* Rounded only on right side */
+    border-radius: 20px 20px 20px 20px; /* Rounded only on right side */
     transition: background-color 0.2s ease;
     display: flex;
     align-items: center;
@@ -482,10 +486,13 @@ form .input-box {
     background-color: rgb(88, 86, 86); 
 }
 
+
 /* Adjust cart icon size for better alignment */
 .CART {
-    font-size: 25px; /* Slightly smaller cart icon */
+    font-size: 20px; /* Slightly smaller cart icon */
 }
+
+
 
 /* Responsive adjustments for integrated search bar */
 @media (max-width: 992px) {
@@ -517,3 +524,4 @@ form .input-box {
         max-width: 100%; /* Even more width on very small screens */
     }
 }
+

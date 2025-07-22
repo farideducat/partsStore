@@ -9,25 +9,50 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-   <div class="navbar">
-    <a href="index.html">
-     <h2>Farid Express Parts Store</h2>
-    </a>
-        
-          <div class="search-bar-integrated">
-        <input type="text" id="searchInput" placeholder="Search products, brands, OEMs..." autocomplete="off">
-        <button id="searchButton"><i class="bi bi-search"></i></button>
+
+ <div class="navbar">
+    <div class="navbar-top-row">
+        <a href="index.html">
+            <h2>Farid Express Parts Store</h2>
+        </a>
+
+        <div class="search-bar-integrated">
+            <input type="text" id="searchInput" placeholder="Search products, brands, OEMs..." autocomplete="off">
+            <button id="searchButton"><i class="bi bi-search"></i></button>
+             
+        </div>
+        <a href="cart.html">
+            <div class="CART">
+                <i class="bi bi-cart2"></i>
+                <div class="cartAmount" id="cartAmount">0</div>
+            </div>
+        </a>
     </div>
 
-        <a href="cart.html">
-        <div class="CART">
-             <i class="bi bi-cart2"></i>
-            <div class="cartAmount" id="cartAmount">0</div>
+    <div class="category-bar">
+        <div class="category-dropdown-container">
+            <button class="category-button" id="allCategoriesBtn">
+                <i class="bi bi-list"></i> All Categories
+            </button>
+            <div class="category-dropdown-content" id="categoryDropdown">
+                <a href="#" data-category="Automotive & Motorcycle">Automotive & Motorcycle</a>
+                <a href="#" data-category="Electronics">Electronics</a>
+                <a href="#" data-category="Home & Garden">Home & Garden</a>
+                <a href="#" data-category="Men's Fashion">Men's Fashion</a>
+                <a href="#" data-category="all">Show All Products</a> </div>
         </div>
-        </a>
-        
+        <div class="top-menu-items">
+            <a href="#" class="menu-item">Bundle deals</a>
+            <a href="#" class="menu-item">Choice</a>
+            <a href="#" class="menu-item">More <i class="bi bi-caret-down-fill"></i></a>
+        </div>
+        <div class="free-shipping-promo">
+            For free shipping add OMR 4.94 more <a href="#">Choice items</a> <i class="bi bi-chevron-right"></i>
+        </div>
     </div>
-   
+    </div>
+
+
 
 
     <div id="shop" class="shop">

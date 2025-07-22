@@ -18,16 +18,278 @@ a{
     color: white;
 }
 /* navbar styling*/
-.navbar{
+/* navbar styling - NOW STICKY AND MULTI-ROW */
+.navbar {
     display: flex;
-    flex: row;
+    flex-direction: column; /* Stack children vertically (top row, then category row) */
+    background-color: #212529; /* Dark background for the whole sticky header */
+    color: azure;
+    padding: 0; /* Remove padding here, rows will handle their own */
+    position: sticky; /* Make the navbar sticky */
+    top: 0; /* Stick to the top of the viewport */
+    width: 100%; /* Take full width */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+    border-bottom: 1px solid rgb(194, 16, 16);
+} 
+
+ /*Top Row of the Navbar (Logo, Search, Cart) */
+.navbar-top-row {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #212529;
-    color: azure;
-    padding: 25px 60px;
-    margin-bottom: 30px;
+    padding: 15px 30px; /* Padding for the top row */
+    width: 100%;
+    background-color: #212529; /* Ensure consistent background */
+    box-sizing: border-box; /* Include padding in width */
+    
 }
+
+/* Search Bar Integrated (now styled to fit inside navbar-top-row) */
+.search-bar-integrated {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 40px;
+}
+
+.search-bar-integrated #searchInput {
+    border: none;
+    outline: none;
+    padding: 0 15px;
+    font-size: 0.95rem;
+    flex-grow: 1;
+    color: #333;
+    background-color: transparent;
+}
+
+.search-bar-integrated #searchInput::placeholder {
+    color: #888;
+}
+
+.search-bar-integrated #searchButton {
+    background-color: #0d0b0a;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    height: 100%;
+    border-radius: 20px 20px 20px 20px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+
+.search-bar-integrated #searchButton:hover {
+    background-color: #4e4c4b;
+
+}
+
+
+.CART {
+    font-size: 25px;
+}
+
+
+
+/* --- Category Bar Styling (Now INSIDE Navbar) --- */
+.category-bar {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa; /* Light background for the category row */
+    padding: 10px 30px;
+    border-top: 1px solid #e9ecef; /* Separator from top row */
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%; /* Ensure it takes full width of parent */
+    box-sizing: border-box;
+}
+
+/* Category Dropdown Container */
+.category-dropdown-container {
+    position: relative;
+    display: inline-block;
+    z-index: 100;
+}
+
+.category-button {
+    background-color: #ff5400;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.category-button:hover {
+    background-color: #e04a00;
+}
+
+/* Dropdown Content (Hidden by default) */
+.category-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+    border-radius: 5px;
+    padding: 10px 0;
+    top: 100%;
+    left: 0;
+    border: 1px solid #ddd;
+}
+
+.category-dropdown-content a {
+    color: black;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    transition: background-color 0.15s ease;
+}
+
+.category-dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: #ff5400;
+}
+
+/* Show the dropdown menu on hover */
+.category-dropdown-container:hover .category-dropdown-content {
+    display: block;
+}
+
+/* Top Menu Items (like "Bundle deals", "Choice") */
+.top-menu-items {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.top-menu-items .menu-item {
+    color: #333;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.2s ease;
+}
+
+.top-menu-items .menu-item:hover {
+    color: #ff5400;
+}
+
+.top-menu-items .menu-item i {
+    font-size: 0.7em;
+    margin-left: 5px;
+}
+
+/* Free Shipping Promo */
+.free-shipping-promo {
+    margin-left: auto;
+    background-color: #fff3cd;
+    color: #664d03;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.free-shipping-promo a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for the entire sticky navbar */
+@media (max-width: 992px) {
+    .navbar-top-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px;
+        gap: 10px;
+    }
+    .navbar-top-row h2 {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .search-bar-integrated {
+        order: 3;
+        width: 90%;
+        margin: 0;
+    }
+    .CART {
+        order: 2;
+        margin-left: auto;
+        margin-right: 0;
+    }
+    .category-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    .category-dropdown-container {
+        width: 100%;
+    }
+    .category-button {
+        width: 100%;
+        justify-content: center;
+    }
+    .top-menu-items {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 5px;
+    }
+    .free-shipping-promo {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .search-bar-integrated {
+        max-width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .CART{
     position: relative;
@@ -423,9 +685,6 @@ form .input-box {
 }
 
 
-
-
-
  .navbar {
     display: flex;
     /* Updated to space-between to push items to edges */
@@ -437,91 +696,6 @@ form .input-box {
     
 }
 
-/* NEW: Integrated Search Bar Styling */
-.search-bar-integrated {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    max-width: 700px; /* Max width for larger screens */
-    margin: 0px 20px; /* Margin on left/right to separate from text/cart */
-    background-color: #ffffff; /* White background for search area */
-    border-radius: 20px; /* Rounded corners */
-    overflow: hidden; /* Ensures content stays within rounded corners */
-    height: 40px; /* Fixed height for the search bar container */
-}
 
 
-.search-bar-integrated #searchInput {
-    border: none;
-    outline: none;
-    padding: 0 15px;
-    font-size: 0.95rem;
-    flex-grow: 1; /* Input takes all available space */
-    color: #333; /* Text color for input */
-    background-color: transparent; /* Transparent background */
-}
-
-.search-bar-integrated #searchInput::placeholder {
-    color: #888;
-}
-
-
-.search-bar-integrated #searchButton {
-    background-color: black; /* AliExpress orange-red */
-    color: white;
-    border: none;
-    padding: 15px 15px;
-    cursor: pointer;
-    font-size: 1.1rem; /* Slightly larger icon */
-    height: 100%; /* Button takes full height */
-    border-radius: 20px 20px 20px 20px; /* Rounded only on right side */
-    transition: background-color 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: solid 1px white;
-}
-
-.search-bar-integrated #searchButton:hover {
-    background-color: rgb(88, 86, 86); 
-}
-
-
-/* Adjust cart icon size for better alignment */
-.CART {
-    font-size: 20px; /* Slightly smaller cart icon */
-}
-
-
-
-/* Responsive adjustments for integrated search bar */
-@media (max-width: 992px) {
-    .navbar {
-        flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-        justify-content: center; /* Center items when wrapped */
-        padding: 15px 15px;
-        gap: 10px; /* Space between wrapped items */
-    }
-    .navbar h2 {
-        width: 100%; /* Full width for title */
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .search-bar-integrated {
-        order: 3; /* Push search bar to new line */
-        width: 90%; /* Take more width */
-        margin: 0; /* Remove side margins */
-    }
-    .CART {
-        order: 2; /* Position cart correctly */
-        margin-left: auto; /* Push cart to the right if space allows */
-        margin-right: 0;
-    }
-}
-
-@media (max-width: 600px) {
-    .search-bar-integrated {
-        max-width: 100%; /* Even more width on very small screens */
-    }
-}
 

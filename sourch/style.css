@@ -790,3 +790,55 @@ form .input-box {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    color: #dae3dd;
+    background-color: #09c75b;
+    position: fixed; /* Stays in place relative to the viewport */
+    width: 60px; /* Width of the button */
+    height: 60px; /* Height of the button */
+    bottom: 40px; /* Distance from the bottom of the viewport */
+    right: 40px; /* Distance from the right of the viewport */
+    border-radius: 50px; /* Makes it a perfect circle */
+    text-align: center;
+    font-size: 30px; /* Size of the icon */
+    box-shadow: 2px 2px 3px #999; /* Subtle shadow for depth */
+    z-index: 1000; /* Ensures it stays on top of other content */
+    display: flex; /* Use flexbox to easily center the icon */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+.whatsapp-float .whatsapp-icon {
+    margin-top: 2px; /* Slight adjustment if icon isn't perfectly centered */
+}
+
+.whatsapp-float:hover {
+    background-color: #1DA851; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Enhanced shadow on hover */
+}
+
+/* Optional: Adjust for smaller screens */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}

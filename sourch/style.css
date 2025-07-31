@@ -517,13 +517,32 @@ a {
     #shop {
         padding: 10px;
         gap: 10px;
+        /* --- IMPORTANT CHANGES FOR HORIZONTAL SCROLLING --- */
+        flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        justify-content: flex-start; /* Align items to the start for scrolling */
+        /* Hide scrollbar for a cleaner look */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        scrollbar-width: none; /* Hide scrollbar for Firefox */
+        -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
     }
+    /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+    #shop::-webkit-scrollbar {
+        display: none;
+    }
+
     .items {
-        flex: 0 0 100%; /* 1 item per row, full width */
-        max-width: 100%;
+        /* Set a fixed width for each item so multiple can fit in a row */
+        flex: 0 0 220px; /* Example: Each item will be 220px wide */
+        /* You can adjust 220px to your preferred item width on mobile */
+        max-width: 220px; /* Ensure max-width matches flex-basis */
+        min-width: 200px; /* A minimum width just in case */
+
+        height: 350px; /* Adjust card height for mobile if needed, to keep it compact */
+        /* Inherit other styles from the general .items rule */
     }
     .items img {
-        height: 200px;
+        height: 160px; /* Slightly smaller image height for mobile scroll */
     }
     .items .details {
         padding: 10px;
@@ -532,6 +551,18 @@ a {
         width: 35px;
         height: 35px;
         font-size: 1rem;
+    }
+    /* Adjust text sizes within .items for mobile if they appear too large */
+    .items .details h3 {
+        font-size: 0.95rem; /* Smaller title */
+        height: 2.2em;
+    }
+    .items .details p {
+        font-size: 0.75rem; /* Smaller description */
+        height: 3.4em;
+    }
+    .price-action h2 {
+        font-size: 1.1rem; /* Smaller price */
     }
 }
 

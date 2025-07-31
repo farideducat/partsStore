@@ -1,51 +1,51 @@
-*{
+/* Universal Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   
 }
 
-body{
+body {
     font-family: serif;
-    
 }
 
-i{
+i {
     cursor: pointer;
 }
-a{
+
+a {
     text-decoration: none;
-    color: white;
+    color: white; /* Default for links, overridden where needed */
 }
-/* navbar styling*/
-/* navbar styling - NOW STICKY AND MULTI-ROW */
+
+/* ==================================== */
+/* Navbar Styling */
+/* ==================================== */
 .navbar {
     display: flex;
-    flex-direction: column; /* Stack children vertically (top row, then category row) */
-    background-color: #212529; /* Dark background for the whole sticky header */
+    flex-direction: column;
+    background-color: #212529;
     color: azure;
-    padding: 0; /* Remove padding here, rows will handle their own */
-    position: sticky; /* Make the navbar sticky */
-    top: 0; /* Stick to the top of the viewport */
-    width: 100%; /* Take full width */
-    z-index: 1000; /* Ensure it stays on top of other content */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+    padding: 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     border-bottom: 1px solid rgb(194, 16, 16);
-} 
+}
 
- /*Top Row of the Navbar (Logo, Search, Cart) */
 .navbar-top-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px; /* Padding for the top row */
+    padding: 15px 30px;
     width: 100%;
-    background-color: #212529; /* Ensure consistent background */
-    box-sizing: border-box; /* Include padding in width */
-    
+    background-color: #212529;
+    box-sizing: border-box;
 }
 
-/* Search Bar Integrated (now styled to fit inside navbar-top-row) */
+/* Search Bar */
 .search-bar-integrated {
     display: flex;
     align-items: center;
@@ -75,49 +75,62 @@ a{
 .search-bar-integrated #searchButton {
     background-color: #0d0b0a;
     color: white;
-    border: none;
+    border: none; /* Removed border: 1px solid white; as it conflicts with rounded corners */
     padding: 0 15px;
     cursor: pointer;
     font-size: 1.1rem;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 0 20px 20px 0; /* Apply border-radius only to right side */
     transition: background-color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid white;
 }
-
 
 .search-bar-integrated #searchButton:hover {
     background-color: #4e4c4b;
-
 }
 
-
+/* Cart Icon in Navbar */
 .CART {
-    font-size: 25px;
+    position: relative;
+    font-size: 25px; /* Consistent with other icons */
+    background-color: WHITE; /* Background for the icon box */
+    color: #212529; /* Icon color */
+    padding: 5px;
+    border-radius: 4px;
 }
 
+.cartAmount {
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    font-size: 16px;
+    background-color: rgb(229, 224, 224);
+    color: red;
+    border-radius: 5px;
+    padding: 3px;
+    font-weight: bold;
+}
 
-
-/* --- Category Bar Styling (Now INSIDE Navbar) --- */
+/* Category Bar */
 .category-bar {
     display: flex;
     align-items: center;
-    background-color: #f8f9fa; /* Light background for the category row */
+    background-color: #f8f9fa;
     padding: 10px 30px;
-    border-top: 1px solid #e9ecef; /* Separator from top row */
+    border-top: 1px solid #e9ecef;
     gap: 20px;
     flex-wrap: nowrap;
-    width: 100%; /* Ensure it takes full width of parent */
+    width: 100%;
     box-sizing: border-box;
     overflow-x: auto; /* Enable horizontal scrolling when content overflows */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
-    justify-content: flex-start; /* Align items to the left */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    justify-content: flex-start;
 }
+
 .category-bar::-webkit-scrollbar {
     display: none;
 }
@@ -150,7 +163,7 @@ a{
     background-color: #e04a00;
 }
 
-/* Dropdown Content (Hidden by default) */
+/* Dropdown Content */
 .category-dropdown-content {
     display: none;
     position: absolute;
@@ -179,12 +192,11 @@ a{
     color: #ff5400;
 }
 
-/* Show the dropdown menu on hover */
 .category-dropdown-container:hover .category-dropdown-content {
     display: block;
 }
 
-/* Top Menu Items (like "Bundle deals", "Choice") */
+/* Top Menu Items */
 .top-menu-items {
     display: flex;
     gap: 20px;
@@ -208,29 +220,29 @@ a{
     margin-left: 5px;
 }
 
-/* New Container for Free Shipping Promo */
+/* Free Shipping Promo Bar */
 .free-shipping-bar {
-    background-color: #fff3cd; /* Light background for the promo bar */
-    color: #664d03; /* Dark text for readability */
-    padding: 10px 30px; /* Padding to match navbar sides */
+    background-color: #fff3cd;
+    color: #664d03;
+    padding: 10px 30px;
     font-size: 0.9rem;
-    display: flex; /* Use flexbox to center content easily */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    text-align: center; /* Fallback for text alignment */
-    border-bottom: 1px solid #e9ecef; /* Optional separator */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Subtle shadow */
-    position: sticky; /* Make it sticky below the main navbar */
-    top: 60px; /* Adjust this value based on your navbar's height + padding */
-    z-index: 999; /* Lower than navbar, higher than content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 90px; /* Adjusted: (Navbar top-row height + Category bar height + their paddings) */
+    z-index: 999;
     width: 100%;
     box-sizing: border-box;
 }
 
 .free-shipping-bar a {
-    color: #007bff; /* Link color within the promo */
+    color: #007bff;
     text-decoration: underline;
-    white-space: nowrap; /* Prevent link text from wrapping */
+    white-space: nowrap;
 }
 
 .free-shipping-bar i {
@@ -239,34 +251,35 @@ a{
 }
 
 .free-shipping-promo {
-    /* Reset any conflicting styles from its old parent if necessary */
-    margin-left: 0; /* Remove auto-margin, let parent center */
-    padding: 0; /* Parent (free-shipping-bar) handles padding */
-    border-radius: 0; /* Remove individual border-radius */
-    background-color: transparent; /* Transparent, parent sets background */
-    color: inherit; /* Inherit color from parent */
+    margin-left: 0;
+    padding: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: inherit;
     display: flex;
     align-items: center;
     gap: 5px;
-    white-space: nowrap; /* Keep text on one line */
+    white-space: nowrap;
 }
 
-/* Responsive adjustments for the entire sticky navbar */
+
+/* ==================================== */
+/* Responsive Navbar Adjustments */
+/* ==================================== */
 @media (max-width: 992px) {
-       .navbar-top-row {
+    .navbar-top-row {
         flex-wrap: wrap;
         justify-content: center;
         padding: 15px;
         gap: 10px;
     }
-      .navbar-top-row h2 {
+    .navbar-top-row h2 {
         width: 100%;
         text-align: center;
         margin-bottom: 10px;
-        font-size: 1rem; /* Adjust font size for smaller screens */
-        line-height: 1.2; /* Improve line spacing */
+        font-size: 1.8rem; /* Adjusted to be more readable */
+        line-height: 1.2;
     }
-
     .search-bar-integrated {
         order: 3;
         width: 90%;
@@ -278,26 +291,21 @@ a{
         margin-left: auto;
         margin-right: 0;
     }
-
     .category-bar {
         padding: 10px 15px;
         gap: 15px;
     }
-   
-     .category-button {
-        padding: 8px 12px; /* Slightly smaller padding */
-        font-size: 0.9rem; /* Slightly smaller font */
+    .category-button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
     }
-
-
-    .top-menu-items.menu-item{
-        font-size: 0.9rem; /* Slightly smaller font */
+    .top-menu-items .menu-item {
+        font-size: 0.9rem;
     }
-
     .free-shipping-bar {
         padding: 8px 15px;
         font-size: 0.8rem;
-        top: 30px;
+        top: 80px; /* Adjusted for smaller navbar height */
     }
 }
 
@@ -305,11 +313,11 @@ a{
     .search-bar-integrated {
         max-width: 100%;
     }
+    .free-shipping-bar {
+        top: 70px; /* Further adjustment for smaller screens if navbar collapses more */
+    }
 }
 
-
-
-/* Additional adjustments for very small screens */
 @media (max-width: 480px) {
     .navbar-top-row h2 {
         font-size: 1.3rem;
@@ -325,7 +333,7 @@ a{
     }
     .category-bar {
         padding: 8px 10px;
-        gap: 8px; /* Even smaller gap for very small screens */
+        gap: 8px;
     }
     .category-button, .top-menu-items .menu-item {
         font-size: 0.8rem;
@@ -336,129 +344,213 @@ a{
     }
     .free-shipping-bar {
         padding: 6px 10px;
-        font-size: 0.75rem; /* Even smaller promo text */
+        font-size: 0.75rem;
+        top: 60px; /* Final adjustment for smallest screens */
     }
 }
 
+/* ==================================== */
+/* Core Layout - Shop Page (index.html) */
+/* ==================================== */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.CART{
-    position: relative;
-    background-color: WHITE;
-    color: #212529;
-    font-size: 30px;
-    padding: 5px;
-    border-radius: 4px;
+/* Main shop container */
+#shop {
+    display: flex; /* Use flexbox for product grid */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center items horizontally when they don't fill the row */
+    gap: 20px; /* Space between product cards */
+    padding: 20px; /* Padding around the entire shop area */
+    max-width: 1200px; /* Max width for the shop grid to keep it contained */
+    margin: 20px auto; /* Center the shop container itself on the page */
 }
 
-.cartAmount{
-    position: absolute;
-    top: -15px;
-    right: -10px;
-    font-size: 16px;
-   background-color: rgb(229, 224, 224);
-   color: red;
-   border-radius: 5px;
-   padding: 3px;
+/* Individual product card */
+.items {
+    /* flex-grow: 0 (don't grow), flex-shrink: 0 (don't shrink), flex-basis: preferred width */
+    flex: 0 0 calc(25% - 15px); /* Adjusted calc: 4 items per row, 20px gap between them (so -15px for average space) */
+    min-width: 220px; /* Minimum width for the card before it wraps */
+    max-width: 280px; /* Maximum width to prevent cards from getting too wide on large screens */
+
+    background-color: #fff;
+    border: 1px solid #e0e0e0; /* Changed from 2px solid #212529 */
+    border-radius: 8px; /* Consistent border-radius */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Stack image, details vertically */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
 }
 
-
-
-.shop {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 50px;
-  padding: 0 10px;
+.items:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-@media (max-width: 1000px){
-    .shop{
-       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    }
-}
-@media (max-width: 200px){
-    .shop{
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    }
-}
-
-
-.items{
-    border: 2px solid #212529;
-    border-radius: 5px;
-   padding: 2px;
-}
-.items img{
+/* Product image styling */
+.items img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    background-color: white;
+    height: 180px; /* Fixed height for images for consistent card size */
+    object-fit: contain; /* Ensures the entire image fits within the box */
+    padding: 10px; /* Padding inside the image container */
+    box-sizing: border-box; /* Include padding in the height/width */
+    background-color: #f8f8f8; /* Light background for images */
 }
 
-
-.details{
+/* Product details section within the card */
+.items .details {
+    padding: 15px; /* Padding around text content */
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    gap: 10px;
-
+    flex-grow: 1; /* Allows details section to take up available space */
+    justify-content: space-between; /* Push price/button to bottom if content is short */
 }
 
-
-.price-quantity{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+.items .details h3 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 5px;
+    height: 2.2em; /* Ensure consistent height for titles (2 lines) */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
-
-.buttons{
-   display: flex;
-   gap: 5px;
-   font-size: 15px;
+.items .details p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 10px;
+    height: 3.4em; /* Consistent height for description (approx 3 lines) */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
-
-.bi-dash-lg{
-    color: #212529;
-    border-radius: 5px;
+/* Price and button container */
+/* Renamed from .price-quantity to .price-action for consistency with main.js and better naming */
+.price-action {
+    display: flex;
+    flex-direction: row; /* Price and button side-by-side */
+    justify-content: space-between; /* Price on left, button on right */
+    align-items: center; /* Vertically align them */
+    width: 100%;
+    margin-top: auto; /* Pushes this section to the bottom of the .details flex container */
 }
 
-.bi-plus-lg{
-  color: rgb(20, 223, 20);
-  border-radius: 5px;
+.price-action h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    white-space: nowrap; /* Prevent price from wrapping */
 }
 
-.text-container{
+/* AliExpress-style "Add to Cart" button (icon only) */
+.view-product-btn {
+    background-color: white;
+    color: black; /* Icon color */
+    border: 1px solid #c0c0c0;
+    padding: 6px 10px;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    font-size: 1.2rem; /* Icon size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    width: 40px; /* Fixed width for compact button */
+    height: 40px; /* Fixed height for compact button */
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent it from shrinking */
+    margin-left: 10px; /* Space from the price */
+}
+
+.view-product-btn:hover {
+    background-color: black;
+    color: white; /* Icon color on hover */
+    border-color: black;
+}
+
+/* ==================================== */
+/* Responsive Adjustments for Shop Page */
+/* ==================================== */
+
+/* For screens smaller than 1000px (e.g., large tablets) */
+@media (max-width: 1000px) {
+    #shop {
+        gap: 15px;
+    }
+    .items {
+        flex: 0 0 calc(33.33% - 10px); /* 3 items per row, adjusted for 15px gap */
+        max-width: 320px;
+    }
+}
+
+/* For screens smaller than 768px (e.g., tablets) */
+@media (max-width: 768px) {
+    #shop {
+        padding: 15px;
+        gap: 15px;
+    }
+    .items {
+        flex: 0 0 calc(50% - 10px); /* 2 items per row, adjusted for 15px gap */
+        max-width: calc(50% - 15px); /* Max width based on 2 per row with gap */
+        min-width: unset; /* Allow more flexibility */
+    }
+    .items img {
+        height: 160px;
+    }
+    .items .details h3 {
+        font-size: 1rem;
+    }
+    .items .details p {
+        font-size: 0.8rem;
+    }
+}
+
+/* For screens smaller than 480px (e.g., mobile phones) */
+@media (max-width: 480px) {
+    #shop {
+        padding: 10px;
+        gap: 10px;
+    }
+    .items {
+        flex: 0 0 100%; /* 1 item per row, full width */
+        max-width: 100%;
+    }
+    .items img {
+        height: 200px;
+    }
+    .items .details {
+        padding: 10px;
+    }
+    .view-product-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+/* ==================================== */
+/* Cart Page (cart.html) */
+/* ==================================== */
+
+.text-container {
     text-align: center;
-    margin-bottom: 20px;
+    padding: 30px 20px;
 }
 
-.HomeBtn, .checkout, .removeAll{
+.text-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.HomeBtn, .checkout, .removeAll {
     background-color: black;
     color: white;
     border: none;
@@ -466,175 +558,256 @@ a{
     border-radius: 3px;
     cursor: pointer;
     margin-top: 10px;
+    margin: 0 5px; /* Added horizontal margin */
 }
 
-.checkout{
+.checkout {
     background-color: green;
 }
-.removeAll{
+.removeAll {
     background-color: red;
 }
 
-.bi-trash3-fill{
-   background-color: white;
-    font: bold;
+.HomeBtn:hover, .checkout:hover, .removeAll:hover {
+    opacity: 0.9;
 }
 
-.shopping-cart{
-      display: grid;
-    grid-template-columns: repeat(1, 320px);
-    justify-content: center;
-    gap: 15px;
-}
-.cart-item{
-    border: 2px solid #212529;
-    border-radius: 5px;
-    display: flex;
+
+.shopping-cart {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted for better responsiveness */
+    gap: 20px; /* Increased gap */
+    padding: 20px;
+    max-width: 900px; /* Wider max-width for cart items */
+    margin: 20px auto;
 }
 
-.title-price-x{
-    width: 190px;
+.cart-item {
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 8px; /* Rounded corners */
     display: flex;
     align-items: center;
-    justify-content: space-between ;
-    
-    
-}
-.title-price{
-    
-    display: flex;
-    align-items: center ;
-    gap: 1px;
+    gap: 15px;
+    padding: 15px;
+    background-color: #f9f9f9; /* Light background */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Subtle shadow */
 }
 
-.cart-item-price{
-    background-color: white;
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.details-cart-item {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-price-x {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    width: 100%; /* Ensure it spans full width of its container */
+}
+
+.title-price-x h4 { /* Targeting h4 inside title-price-x specifically */
+    font-size: 1.1rem;
+    margin: 0;
+    color: #333;
+    flex-shrink: 1; /* Allow it to shrink */
+    min-width: 0; /* Important for flex items with text-overflow */
+}
+
+.cart-item-price { /* Renamed from .title-price to be specific to cart item price */
+    background-color: transparent; /* Changed from white background */
     color: black;
     border-radius: 3px;
-    padding: 3px, 6px;
-    font: bolder;
+    padding: 0; /* Removed padding */
+    font-weight: bolder;
+    margin-left: 10px; /* Space from title */
+    white-space: nowrap; /* Keep price on one line */
 }
 
+.bi-x-lg { /* Delete icon for cart item */
+    cursor: pointer;
+    color: red;
+    font-size: 1.2rem;
+    margin-left: 10px; /* Space from price */
+    flex-shrink: 0; /* Prevent from shrinking */
+}
 
-/* contact form email */
+.details-cart-item .buttons { /* Quantity buttons for cart items */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1rem;
+    margin-top: 10px; /* Space from title-price-x */
+}
 
+.details-cart-item .buttons i {
+    cursor: pointer;
+    color: #007bff; /* Blue for increment/decrement icons */
+}
 
-  .contact{
+.details-cart-item .item-total {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Responsive adjustments for cart page */
+@media (max-width: 600px) {
+    .shopping-cart {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        padding: 10px;
+        gap: 15px;
+    }
+    .cart-item {
+        flex-direction: column; /* Stack image and details vertically */
+        text-align: center;
+        align-items: center; /* Center items in column */
+    }
+    .cart-item img {
+        margin-bottom: 10px;
+    }
+    .details-cart-item {
+        align-items: center;
+    }
+    .title-price-x {
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 10px;
+    }
+    .title-price-x h4, .cart-item-price, .bi-x-lg {
+        margin: 0; /* Reset margins when stacked */
+    }
+}
+
+/* ==================================== */
+/* Contact Form Email Section */
+/* ==================================== */
+
+.contact {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
     background-color: #0f0f0f;
-  }
+}
 
-  .contact h3{
+.contact h3 {
     font-size: 40px;
     text-align: center;
     margin-bottom: 10px;
     color: white;
-  }
+}
 
 .contact form {
-  width: 100%;
-  max-width: 600px;
-  padding: 0 20px;
-  text-align: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+    text-align: center;
 }
 
 form .input-box {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
 }
- 
- .input-box .input-field{
-  width: 48.5%;
- }
+
+.input-box .input-field {
+    width: 48.5%;
+}
 
 @media (max-width: 600px) {
-  .input-box .input-field {
+    .input-box .input-field {
+        width: 100%;
+    }
+}
+
+.field .tex-error {
+    font-size: 14px;
+    color: white; /* Changed from red to white for better contrast on dark bg */
+    text-align: left;
+    margin: -5px 0 12px;
+    display: none;
+}
+
+.field.error .tex-error {
+    display: block;
+}
+
+form .textarea-field .tex-error {
+    margin-top: -10px;
+}
+
+.field .item {
     width: 100%;
-  }
+    padding: 18px;
+    border: 2px solid white;
+    border-radius: 6px;
+    outline: none;
+    font-size: 16px;
+    color: #dbe1d1;
+    margin: 12px 0;
+    background-color: transparent;
 }
 
-.field .tex-error{
-  font-size: 14px;
-  color: white;
-   text-align: left;
-   margin:-5px 0 12px;
-   display: none;
-}
-
-.field.error .tex-error{
-  display: block;
-}
-
- form .textarea-field  .tex-error{
-  margin-top: -10px;
- }
-
- .field .item{
-  width: 100%;
-  padding: 18px;
-  border: 2px solid white;
-  border-radius: 6px;
-  outline: none;
-  font-size: 16px;
-  color: #dbe1d1;
-  margin: 12px 0;
-  background-color: transparent;
- }
-.field.error .item{
+.field.error .item {
     border-color: crimson;
 }
 
- .field .item::placeholder{
-  color: rgba(206, 206, 206, 3);
- }
+.field .item::placeholder {
+    color: rgba(206, 206, 206, 0.7); /* Slightly more transparent placeholder */
+}
 
- form .textarea-field .item{
-  resize: none;
- }
- form button{
-  padding: 12px 32px;
-  background-color: #1ec17b;
-  border: none;
-  outline: none;
-  border-radius: 6px;
-  box-shadow: 0 0 10px #1ec17b ;
-  font-size: 16px;
-  color: whitesmoke;
-  letter-spacing: 1px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: .5s;
+form .textarea-field .item {
+    resize: none;
+}
 
- }
+form button {
+    padding: 12px 32px;
+    background-color: #1ec17b;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px #1ec17b;
+    font-size: 16px;
+    color: whitesmoke;
+    letter-spacing: 1px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: .5s;
+}
 
-  form button:hover{
+form button:hover {
     box-shadow: none;
-  }
+}
 
-
-
-
-
-  /* --- Product Details Page Styling --- */
+/* ==================================== */
+/* Product Details Page Styling */
+/* ==================================== */
 
 .product-detail-container {
     padding: 40px 20px;
-    max-width: 900px; /* Adjust as needed */
+    max-width: 900px;
     margin: 30px auto;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    display: flex; /* Use flexbox for image and info side-by-side */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 30px; /* Space between image and info */
-    justify-content: center; /* Center content horizontally */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
 }
 
 .single-product-wrapper {
@@ -646,29 +819,28 @@ form .input-box {
 }
 
 .product-image-area {
-    flex: 1; /* Allow image area to grow */
-    min-width: 300px; /* Minimum width before wrapping */
-    max-width: 450px; /* Max width for image */
+    flex: 1;
+    min-width: 300px;
+    max-width: 450px;
     text-align: center;
-    border: 1px solid #eee; /* Light border for image container */
+    border: 1px solid #eee;
     overflow: hidden;
 }
 
 .product-detail-image {
     width: 100%;
     height: auto;
-    max-height: 400px; /* Limit image height */
-    object-fit: contain; /* Ensures entire image is visible */
-   
+    max-height: 400px;
+    object-fit: contain;
 }
 
 .product-info-area {
-    flex: 2; /* Allow info area to grow more */
-    min-width: 300px; /* Minimum width before wrapping */
+    flex: 2;
+    min-width: 300px;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Pushes content apart */
+    justify-content: space-between;
 }
 
 .product-detail-name {
@@ -680,13 +852,13 @@ form .input-box {
 
 .product-detail-price {
     font-size: 1.8rem;
-    color: #28a745; /* Green for price */
+    color: #28a745;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 .product-detail-price span {
-    font-size: 2.2rem; /* Make the price number slightly larger */
+    font-size: 2.2rem;
 }
 
 .product-detail-description {
@@ -696,17 +868,69 @@ form .input-box {
     margin-bottom: 25px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Quantity buttons on product details page */
+.price-quantity .buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.price-quantity .buttons i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #007bff;
+    padding: 5px;
+}
+
+.price-quantity .buttons .quantity {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* WhatsApp Order Button on product details page */
+.whatsapp-order-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 20px 0; /* Adjusted margin to ensure it sits well */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-order-btn i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.whatsapp-order-btn:hover {
+    background-color: #1DA851;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments for product-details page */
+@media (max-width: 800px) {
     .product-detail-container {
-        flex-direction: column; /* Stack image and info vertically */
-        padding: 20px 15px;
+        flex-direction: column;
+        padding: 20px;
+        margin: 20px auto;
         gap: 20px;
     }
     .product-image-area,
     .product-info-area {
-        min-width: unset; /* Remove min-width constraints */
-        width: 100%; /* Take full width on small screens */
+        flex: 1 1 100%;
+        max-width: 100%;
     }
     .product-detail-name {
         font-size: 1.8rem;
@@ -719,120 +943,55 @@ form .input-box {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* --- WhatsApp Button Styling --- */
-.whatsapp-order-btn {
-    display: inline-flex; /* Allows icon and text to sit nicely */
-    align-items: center; /* Vertically centers icon and text */
-    background-color: #25D366; /* WhatsApp green */
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 20px 20px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.whatsapp-order-btn i {
-    font-size: 1.5rem; /* Size of the WhatsApp icon */
-    margin-right: 10px; /* Space between icon and text */
-}
-
-.whatsapp-order-btn:hover {
-    background-color: #1DA851; /* Darker green on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-
-
-
-/* Add a new media query for even smaller screens if needed */
 @media (max-width: 480px) {
-    .navbar-top-row h2 {
-        font-size: 1.3rem; /* Even smaller font for very narrow screens */
+    .product-detail-name {
+        font-size: 1.5rem;
     }
-    .search-bar-integrated {
-        height: 35px; /* Slightly smaller search bar */
+    .product-detail-price {
+        font-size: 1.2rem;
     }
-    .search-bar-integrated #searchInput {
-        font-size: 0.85rem;
+    .price-quantity .buttons {
+        font-size: 1.3rem;
     }
-    .CART {
-        font-size: 22px; /* Slightly smaller cart icon */
-    }
-    .category-bar {
-        padding: 8px 10px; /* Less padding for category row */
-        gap: 10px;
-    }
-    .category-button, .top-menu-items .menu-item, .free-shipping-promo {
-        font-size: 0.8rem; /* Smaller text for category bar items */
-        padding: 8px 10px;
-    }
-    .category-dropdown-content {
-        min-width: 200px; /* Adjust dropdown width */
+    .whatsapp-order-btn {
+        padding: 10px 15px;
+        font-size: 1rem;
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ==================================== */
 /* Floating WhatsApp Button */
+/* ==================================== */
+
 .whatsapp-float {
     color: #dae3dd;
     background-color: #09c75b;
-    position: fixed; /* Stays in place relative to the viewport */
-    width: 60px; /* Width of the button */
-    height: 60px; /* Height of the button */
-    bottom: 40px; /* Distance from the bottom of the viewport */
-    right: 40px; /* Distance from the right of the viewport */
-    border-radius: 50px; /* Makes it a perfect circle */
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    border-radius: 50px;
     text-align: center;
-    font-size: 30px; /* Size of the icon */
-    box-shadow: 2px 2px 3px #999; /* Subtle shadow for depth */
-    z-index: 1000; /* Ensures it stays on top of other content */
-    display: flex; /* Use flexbox to easily center the icon */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .whatsapp-float .whatsapp-icon {
-    margin-top: 2px; /* Slight adjustment if icon isn't perfectly centered */
+    margin-top: 2px;
 }
 
 .whatsapp-float:hover {
-    background-color: #1DA851; /* Darker green on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Enhanced shadow on hover */
+    background-color: #1DA851;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Optional: Adjust for smaller screens */
 @media (max-width: 768px) {
     .whatsapp-float {
         width: 50px;
@@ -841,4 +1000,16 @@ form .input-box {
         right: 20px;
         font-size: 25px;
     }
+}
+
+/* ==================================== */
+/* Footer */
+/* ==================================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9rem;
 }

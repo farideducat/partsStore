@@ -33,7 +33,7 @@ let generatorShop = (itemsToDisplay = shopItemsData) => { // Default to all item
                     <p>${description.substring(0, 70)}...</p>
                     <div class="price-action">
                         <h2>${price} OMR</h2>
-                        <button onclick="window.location.href = 'product-details.html?id=${id}'" class="view-product-btn"><i class="bi bi-cart-plus"></i></button>
+                        <button onclick="window.location.href = 'product-details.html?id=${id}'" class="view-product-btn">Add to Cart</button>
                     </div>
                 </div>
             `;

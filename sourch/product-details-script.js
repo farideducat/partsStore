@@ -2,19 +2,27 @@
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 
-// Part 2: Get the main container from the HTML
-const productDetailsContainer = document.getElementById('product-details-container');
-const cartAmount = document.getElementById("cartAmount");
-
+// Load existing basket from local storage
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 // --- Image Modal Functions ---
 let modal = document.getElementById("image-modal");
 let modalImg = document.getElementById("modal-image");
-let span = document.getElementsByClassName("close-modal-btn")[0];
 
+const openModal = (imageSrc) => {
+    if (modal && modalImg) {
+        modal.style.display = "flex";
+        modalImg.src = imageSrc;
+        document.body.classList.add('modal-open');
+    }
+}
 
-// Load existing basket from local storage
-let basket = JSON.parse(localStorage.getItem("data")) || [];
+const closeModal = () => {
+    if (modal) {
+        modal.style.display = "none";
+        document.body.classList.remove('modal-open');
+    }
+}
 
 // Function to update the quantity display and cart icon
 let update = (id) => {
@@ -28,6 +36,7 @@ let update = (id) => {
 };
 
 let calculation = () => {
+    const cartAmount = document.getElementById("cartAmount");
     if (cartAmount) {
         const totalItems = basket.map((x) => x.item).reduce((x, y) => x + y, 0);
         cartAmount.innerText = totalItems;
@@ -40,14 +49,10 @@ let increement = (id) => {
     let search = basket.find((x) => x.id === selectedItem);
 
     if (search === undefined) {
-        basket.push({
-            id: selectedItem,
-            item: 1,
-        });
+        basket.push({ id: selectedItem, item: 1 });
     } else {
         search.item += 1;
     }
-
     update(selectedItem);
     localStorage.setItem("data", JSON.stringify(basket));
 };
@@ -60,7 +65,6 @@ let decreement = (id) => {
     else {
         search.item -= 1;
     }
-
     update(selectedItem);
     basket = basket.filter((x) => x.item !== 0);
     localStorage.setItem("data", JSON.stringify(basket));
@@ -71,15 +75,11 @@ let addToCart = (id) => {
     let search = basket.find((x) => x.id === selectedItem);
 
     if (search === undefined) {
-        basket.push({
-            id: selectedItem,
-            item: 1,
-        });
+        basket.push({ id: selectedItem, item: 1 });
+        update(selectedItem);
     }
-
     localStorage.setItem("data", JSON.stringify(basket));
     calculation();
-
     const messageContainer = document.getElementById('add-to-cart-message');
     if (messageContainer) {
         messageContainer.innerHTML = 'Item added to cart!';
@@ -90,6 +90,8 @@ let addToCart = (id) => {
 
 // Part 3: Display the product details
 function displayProductDetails() {
+    const productDetailsContainer = document.getElementById('product-details-container');
+
     if (typeof shopItemsData === 'undefined') {
         if (productDetailsContainer) {
             productDetailsContainer.innerHTML = `<p>Error: Product data not found. Check if sourch/data.js is loaded correctly.</p>`;
@@ -120,9 +122,9 @@ function displayProductDetails() {
         productDetailsContainer.innerHTML = `
             <div class="product-details-content">
                 <div class="product-image-gallery">
-                    <img id="main-product-image" onclick="openModal(this.src)"  src="${product.img}" alt="${product.name}" class="product-main-image">
+                    <img id="main-product-image" onclick="openModal(this.src)" src="${product.img}" alt="${product.name}" class="product-main-image">
                     <div class="product-thumbnails" id="product-thumbnails-container">
-                        </div>
+                    </div>
                 </div>
                 <div class="product-info-area">
                     <h1 class="product-detail-name">${product.name}</h1>
@@ -161,32 +163,22 @@ function displayProductDetails() {
     update(product.id);
 }
 
+// Ensure the main functions run only after the HTML content is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // These functions need to run at the start to set up the page
+    displayProductDetails();
+    calculation();
 
-
-let openModal = (imageSrc) => {
-    modal.style.display = "block";
-    modalImg.src = imageSrc;
-    document.body.classList.add('modal-open');
-}
-
-let closeModal = () => {
-    modal.style.display = "none";
-    document.body.classList.remove('modal-open');
-}
-
-if(span) {
-    span.onclick = closeModal;
-}
+    // Attach the close event to the modal button
+    const span = document.getElementsByClassName("close-modal-btn")[0];
+    if (span) {
+        span.onclick = closeModal;
+    }
+});
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target === modal) {
         closeModal();
     }
 }
-
-// Call the function when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    displayProductDetails();
-    calculation();
-});

@@ -827,7 +827,21 @@ form button:hover {
 /* ==================================== */
 /* Product Details Page Styling */
 /* ==================================== */
+.product-main-image {
+width: 100%;
+border-radius: 8px;
+margin-bottom: 10px;
+transition: transform 0.3s ease-in-out; /* Add a smooth transition */
+}
 
+.product-image-gallery:hover .product-main-image {
+transform: scale(1.1); /* Increase the scale on hover /
+cursor: zoom-in; / Change the cursor to indicate zoom */
+}
+
+.product-image-gallery {
+overflow: hidden; /* Clip the zoomed image within the gallery bounds */
+}
 
 .product-details-content {
     display: flex;
@@ -1020,7 +1034,6 @@ footer {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-    display: flex;
     align-items: center;
     justify-content: center;
 }

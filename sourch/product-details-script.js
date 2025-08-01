@@ -6,6 +6,13 @@ const productId = urlParams.get('id');
 const productDetailsContainer = document.getElementById('product-details-container');
 const cartAmount = document.getElementById("cartAmount");
 
+
+// --- Image Modal Functions ---
+let modal = document.getElementById("image-modal");
+let modalImg = document.getElementById("modal-image");
+let span = document.getElementsByClassName("close-modal-btn")[0];
+
+
 // Load existing basket from local storage
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
@@ -113,7 +120,7 @@ function displayProductDetails() {
         productDetailsContainer.innerHTML = `
             <div class="product-details-content">
                 <div class="product-image-gallery">
-                    <img id="main-product-image" src="${product.img}" alt="${product.name}" class="product-main-image">
+                    <img id="main-product-image" onclick="openModal(this.src)"  src="${product.img}" alt="${product.name}" class="product-main-image">
                     <div class="product-thumbnails" id="product-thumbnails-container">
                         </div>
                 </div>
@@ -152,6 +159,30 @@ function displayProductDetails() {
         }
     }
     update(product.id);
+}
+
+
+
+let openModal = (imageSrc) => {
+    modal.style.display = "block";
+    modalImg.src = imageSrc;
+    document.body.classList.add('modal-open');
+}
+
+let closeModal = () => {
+    modal.style.display = "none";
+    document.body.classList.remove('modal-open');
+}
+
+if(span) {
+    span.onclick = closeModal;
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
 }
 
 // Call the function when the page loads

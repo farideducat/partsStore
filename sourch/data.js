@@ -6,9 +6,10 @@ let shopItemsData = [
     description: "OEM: 273012b010 High-performance original ignition coils fit for kia rio, hyundai accent, kia careto, elentra , all 1.6cc engine!",
     img: "images/coil1.jpg",
     images: [
-      "images/coil12.png",
-      "images/coil_thumb2.jpg",
-      "images/coil_thumb3.jpg"
+      "images/test.jpg",
+      "images/coil1.jpg",
+      "images/coil1.jpg",
+      "images/coil1.jpg"
     ],
     category: "Automotive & Motorcycle"
   },
@@ -20,8 +21,8 @@ let shopItemsData = [
     img: "images/coil2.jpg",
     images: [
         "images/coil2.jpg",
-        "images/coil_thumb4.jpg",
-        "images/coil_thumb5.jpg"
+        "images/coil2.jpg",
+        "images/coil2.jpg"
     ],
     category: "Automotive & Motorcycle"
   },
@@ -33,7 +34,7 @@ let shopItemsData = [
     img: "images/coil3.jpg",
     images: [
         "images/coil3.jpg",
-        "images/coil_thumb6.jpg"
+        "images/coil3.jpg"
     ],
     category: "Automotive & Motorcycle"
   },
@@ -45,7 +46,7 @@ let shopItemsData = [
     img: "images/coil4.jpg",
     images: [
         "images/coil4.jpg",
-        "images/coil_thumb7.jpg"
+        "images/coil4.jpg"
     ],
     category: "Automotive & Motorcycle"
   },
@@ -57,7 +58,7 @@ let shopItemsData = [
     img: "images/coil5.jpg",
     images: [
         "images/coil5.jpg",
-        "images/coil_thumb8.jpg"
+        "images/coil5.jpg"
     ],
     category: "Automotive & Motorcycle"
   },
@@ -68,6 +69,8 @@ let shopItemsData = [
     description: "korean standard ignition coil",
     img: "images/coil6.jpg",
     images: [
+        "images/coil6.jpg",
+        "images/coil6.jpg",
         "images/coil6.jpg"
     ],
     category: "Automotive & Motorcycle"

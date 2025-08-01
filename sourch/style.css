@@ -1026,7 +1026,7 @@ footer {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
+    z-index: 1000; /* Sit on top */
     padding-top: 30px; /* Location of the box */
     left: 0;
     top: 0;
@@ -1064,6 +1064,7 @@ footer {
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
+     z-index: 1000; /* Sit on top */
 }
 
 .close-modal-btn:hover,
@@ -1081,6 +1082,24 @@ footer {
 
 /* Mobile Responsiveness for Product Details Page */
 @media (max-width: 768px) {
+        /* Add these new rules below */
+    .product-details-page-layout {
+        margin-top: 80px; 
+    }
+
+      .product-details-content {
+        align-items: center; 
+    }
+
+       .product-image-gallery {
+        text-align: center;
+    }
+
+      .product-main-image {
+        max-width: 400px;
+        height: auto;
+    }
+
     .product-details-content {
         flex-direction: column; /* Ensure vertical stacking */
         gap: 20px;

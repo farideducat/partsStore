@@ -857,7 +857,8 @@ overflow: hidden; /* Clip the zoomed image within the gallery bounds */
 
 .product-image-gallery {
     flex: 1;
-    min-width: 300px;
+   flex-direction: column;
+   overflow: hidden;
 }
 
 .product-main-image {
@@ -865,27 +866,35 @@ overflow: hidden; /* Clip the zoomed image within the gallery bounds */
     border-radius: 8px;
     margin-bottom: 10px;
 }
-
 .product-thumbnails {
     display: flex;
-    gap: 10px;
-    overflow-x: auto;
+    flex-wrap: wrap; /* Prevents images from wrapping to a new line */
+    gap: 10px; /* Space between each thumbnail */
+    padding: 10px 0; /* Add some vertical padding for a cleaner look */
+    justify-content: center;
 }
 
+/* Hide the scrollbar for WebKit browsers (Chrome, Safari, etc.) */
+.product-thumbnails::-webkit-scrollbar {
+    display: none;
+}
+
+/* Style for individual thumbnails */
 .product-thumbnail {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    width: 80px; /* Sets a fixed width for each thumbnail */
+    height: 80px; /* Sets a fixed height to make them square */
+    object-fit: cover; /* Ensures the image fills the space without distortion */
+    cursor: pointer; /* Changes the cursor to a pointer, indicating it's clickable */
+    border: 1px solid #ccc; /* Adds a subtle border */
+    border-radius: 5px; /* Rounds the corners */
+    transition: transform 0.2s; /* Adds a smooth transition effect on hover/click */
+    flex-shrink: 0;
 }
 
 .product-thumbnail:hover {
     border-color: #ff523b;
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
 }
-
 .product-info-area {
     flex: 2;
     min-width: 300px;

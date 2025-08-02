@@ -1,52 +1,82 @@
 let shopItemsData = [
+
+   // ignition coil kia hyundai....
   {
     id: "hgfff",
-    name: "hyundai ignition coil",
+    name: "hyundai kia  ignition coil 273012b010",
     price: "7",
-    description: "OEM: 273012b010 High-performance original ignition coils fit for kia rio, hyundai accent, kia careto, elentra , all 1.6cc engine!",
-    img: "images/coil1.jpg",
+    description: "OEM: 273012b010  New High Performance Ignition Coil 273012B010 For Hyundai I30 ACCENT ELANTRA KIA K2 K3 SOUL 1.6L CEED Cerato VENGA RIA fit for kia rio, hyundai accent, kia careto, elentra , all 1.6cc engine!",
+    img:  "images/273002e000.1.jpg",
     images: [
-      "images/test.jpg",
-      "images/coil1.jpg",
-      "images/coil1.jpg",
-      "images/coil1.jpg"
+      "images/273002e000.1.jpg",
+      "images/273012b0101.jpg",
+      "images/273012b0102.jpg", 
+      "images/273012b0103.jpg", 
+      "images/273012b0104.jpg", 
+      "images/273012b0105.jpg", 
+      "images/273012b0106.jpg", 
     ],
     category: "Automotive & Motorcycle"
   },
+  // ignition coil wire ....
+  {
+    id: "hgfff",
+    name: "hyundai kia  ignition coil wire",
+    price: "6",
+    description: "OEM: 273502b000 High-performance original ignition coils wires fit for kia rio, hyundai accent, kia careto, elentra , all 1.6cc engine!",
+    img: "images/273502b000.3.jpg",
+    images: [
+      "images/273502b000.3.jpg",
+      "images/273502b000.1.jpg",
+      "images/273502b000.jpg",
+      "images/273502b000.3.jpg"
+    ],
+    category: "Automotive & Motorcycle"
+  },
+  
+  //hyundai  elentra coil for 1.8cc 2.00 cc
   {
     id: "fjnfn",
-    name: "kia",
+    name: "hyundai elentra ignition coil ",
     price: "7",
     description: "OEM: 273002E000 fit for hyundai elentra, hyundai sonata, all 1.8cc 2.00cc engine!",
     img: "images/coil2.jpg",
     images: [
         "images/coil2.jpg",
-        "images/coil2.jpg",
-        "images/coil2.jpg"
+        "images/273002e000.1.jpg",
+        "images/273002e000.2.jpg",
+        "images/273002e000.jpg",
+        
     ],
     category: "Automotive & Motorcycle"
   },
+
+// kia optoma sportage coil
   {
     id: "vmfvvv",
-    name: " kia optima , kia carens",
+    name: " kia optima, optima. sportage, tucson, sonata",
     price: "7.200",
-    description: " fit for oem 273003F100 factory standard ignition coil",
+    description: " 273003F100 original Ignition Coil for Sonata Santa fe Genesis Coupe Tucson IX35 for Optima Sportage 27300-3F100 27300 3F100",
     img: "images/coil3.jpg",
     images: [
         "images/coil3.jpg",
-        "images/coil3.jpg"
+        "images/273003f100.jpg",
+        "images/273003f1001.jpg",
     ],
     category: "Automotive & Motorcycle"
   },
+
+   //hyundai accent coil very rare
   {
     id: "gvvv",
     name: "kia hyunday",
     price: "7.300",
-    description: "oem 2730126640 (Waqalah standard ignition coil)",
+    description: "original Ignition Coil 2730126640 For Accent Elantra Rondo Rio Rio5 L4 1.6 2006-2011 OEM 27301-26640 27301 26640",
     img: "images/coil4.jpg",
     images: [
-        "images/coil4.jpg",
-        "images/coil4.jpg"
+       "images/2730126640.jpg",
+       "images/27301266401.jpg",
+       "images/27301266402.jpg",
     ],
     category: "Automotive & Motorcycle"
   },

@@ -5,23 +5,73 @@ const productId = urlParams.get('id');
 // Load existing basket from local storage
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
-// --- Image Modal Functions ---
-let modal = document.getElementById("image-modal");
-let modalImg = document.getElementById("modal-image");
+// --- Image Modal Functions (Corrected Slider Logic) ---
+let allProductImageUrls = [];
+let currentImageIndex = 0;
+const modalImageElement = document.getElementById('modal-image');
+const prevButton = document.querySelector('.prev-modal-btn');
+const nextButton = document.querySelector('.next-modal-btn');
+const closeModalBtn = document.querySelector('.close-modal-btn');
 
-const openModal = (imageSrc) => {
-    if (modal && modalImg) {
-        modal.style.display = "flex";
-        modalImg.src = imageSrc;
-        document.body.classList.add('modal-open');
+// Function to show the image in the modal
+function showModalImage(index) {
+    if (index >= 0 && index < allProductImageUrls.length) {
+        modalImageElement.src = allProductImageUrls[index];
+        currentImageIndex = index;
     }
 }
 
-const closeModal = () => {
-    if (modal) {
-        modal.style.display = "none";
-        document.body.classList.remove('modal-open');
+// Function to open the modal and set up the image slider
+function openModal(imageSrc) {
+    const modal = document.getElementById('image-modal');
+    modal.style.display = 'flex';
+    document.body.classList.add('modal-open');
+
+    // Get all image URLs from the main image and thumbnails
+    const mainImageUrl = document.getElementById('main-product-image').src;
+    const thumbnailElements = document.querySelectorAll('.product-thumbnail');
+    const thumbnailUrls = Array.from(thumbnailElements).map(thumb => thumb.src);
+
+    // Combine main image and thumbnails, ensuring no duplicates
+    allProductImageUrls = [mainImageUrl, ...thumbnailUrls];
+    allProductImageUrls = [...new Set(allProductImageUrls)];
+
+    // Set the initial image in the modal
+    currentImageIndex = allProductImageUrls.indexOf(imageSrc);
+    showModalImage(currentImageIndex);
+
+    // Show/hide navigation buttons based on number of images
+    if (allProductImageUrls.length > 1) {
+        if (prevButton) prevButton.style.display = 'block';
+        if (nextButton) nextButton.style.display = 'block';
+    } else {
+        if (prevButton) prevButton.style.display = 'none';
+        if (nextButton) nextButton.style.display = 'none';
     }
+}
+
+// Attach event listeners for the slider buttons
+if (prevButton && nextButton) {
+    prevButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const newIndex = (currentImageIndex - 1 + allProductImageUrls.length) % allProductImageUrls.length;
+        showModalImage(newIndex);
+    });
+
+    nextButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const newIndex = (currentImageIndex + 1) % allProductImageUrls.length;
+        showModalImage(newIndex);
+    });
+}
+
+// Attach event listener for the close button
+if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => {
+        const modal = document.getElementById('image-modal');
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    });
 }
 
 // Function to update the quantity display and cart icon
@@ -122,7 +172,7 @@ function displayProductDetails() {
         productDetailsContainer.innerHTML = `
             <div class="product-details-content">
                 <div class="product-image-gallery">
-                    <img id="main-product-image" onclick="openModal(this.src)" src="${product.img}" alt="${product.name}" class="product-main-image">
+                <img id="main-product-image" onclick="openModal(this.src)" src="${product.img}" alt="${product.name}" class="product-main-image">
                     <div class="product-thumbnails" id="product-thumbnails-container">
                     </div>
                 </div>
@@ -153,9 +203,8 @@ function displayProductDetails() {
                 img.src = imageSrc;
                 img.alt = `Thumbnail for ${product.name}`;
                 img.classList.add('product-thumbnail');
-                img.onclick = () => {
-                    document.getElementById('main-product-image').src = imageSrc;
-                };
+                // Corrected onclick to use the new modal function
+                img.onclick = () => openModal(imageSrc);
                 thumbnailsContainer.appendChild(img);
             });
         }
@@ -163,22 +212,7 @@ function displayProductDetails() {
     update(product.id);
 }
 
-// Ensure the main functions run only after the HTML content is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    // These functions need to run at the start to set up the page
     displayProductDetails();
     calculation();
-
-    // Attach the close event to the modal button
-    const span = document.getElementsByClassName("close-modal-btn")[0];
-    if (span) {
-        span.onclick = closeModal;
-    }
 });
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target === modal) {
-        closeModal();
-    }
-}

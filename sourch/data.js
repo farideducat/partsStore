@@ -20,7 +20,7 @@ let shopItemsData = [
   },
   // ignition coil wire ....
   {
-    id: "hgfff",
+    id: "hnjdp",
     name: "hyundai kia  ignition coil wire",
     price: "6",
     description: "OEM: 273502b000 High-performance original ignition coils wires fit for kia rio, hyundai accent, kia careto, elentra , all 1.6cc engine!",

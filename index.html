@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,42 +13,35 @@
 
  <div class="navbar">
     <div class="navbar-top-row">
+
         <a href="index.html">
             <h2>Farid Express</h2>
         </a>
 
+        <div class="category-dropdown-container">
+              <a href="#" class="top-menu-item" id="allCategoriesBtn">
+                  <i class="bi bi-list"></i> All Categories
+                </a>
+              <div id="categoryDropdown" class="category-dropdown-content">
+
+              </div>
+        </div>
+
         <div class="search-bar-integrated">
             <input type="text" id="searchInput" placeholder="Search products, brands, OEMs..." autocomplete="off">
-            <button id="searchButton"><i class="bi bi-search"></i></button>
-             
+            <button id="searchButton"><i class="bi bi-search"></i></button>      
         </div>
+
         <a href="cart.html">
             <div class="CART">
                 <i class="bi bi-cart2"></i>
                 <div class="cartAmount" id="cartAmount">0</div>
             </div>
         </a>
+
     </div>
 
-    <div class="category-bar">
-        <div class="category-dropdown-container">
-            <button class="category-button" id="allCategoriesBtn">
-                <i class="bi bi-list"></i> All Categories
-            </button>
-            <div class="category-dropdown-content" id="categoryDropdown">
-                <a href="#" data-category="Automotive & Motorcycle">Automotive & Motorcycle</a>
-                <a href="#" data-category="Electronics">Electronics</a>
-                <a href="#" data-category="Home & Garden">Home & Garden</a>
-                <a href="#" data-category="Men's Fashion">Men's Fashion</a>
-                <a href="#" data-category="all">Show All Products</a> </div>
-        </div>
-        <div class="top-menu-items">
-            <a href="#" class="menu-item">Bundle deals</a>
-            <a href="#" class="menu-item">Choice</a>
-            <a href="#" class="menu-item">More <i class="bi bi-caret-down-fill"></i></a>
-        </div>
-       
-    </div>
+        
     </div>
   
 

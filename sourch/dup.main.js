@@ -1,30 +1,25 @@
-// sourch/main.js
 
 let shop = document.getElementById("shop");
-
 let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 // Get references to search elements
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 
-// Modified generatorShop to accept an array of items to display
-let generatorShop = (itemsToDisplay = shopItemsData) => { // Default to all items
-    if (shop) { // Ensure the 'shop' element exists
+// --- Main generator function for products ---
+let generatorShop = (itemsToDisplay = shopItemsData) => {
+    if (shop) {
         if (itemsToDisplay.length === 0) {
             shop.innerHTML = `<h2 style="text-align:center; padding: 50px; color: #555;">No products found matching your search.</h2>`;
             return;
         }
-
-        shop.innerHTML = ""; // Clear existing content
+        shop.innerHTML = "";
 
         itemsToDisplay.forEach((x) => {
             let { id, name, price, description, img } = x;
-
-            // create the product card element
             let itemDiv = document.createElement("div");
             itemDiv.id = `product-id-${id}`;
-            itemDiv.classList.add("items"); // Add your existing CSS class
+            itemDiv.classList.add("items");
 
             itemDiv.innerHTML = `
                 <img src="${img}" alt="${name}">
@@ -38,10 +33,7 @@ let generatorShop = (itemsToDisplay = shopItemsData) => { // Default to all item
                 </div>
             `;
 
-            // Add a click event listener to the entire product card
-            itemDiv.addEventListener('click', (event) => {
-                // Ensure clicks on the button still trigger its own action (which is navigation)
-                // If you click outside the button but on the card, it also navigates.
+            itemDiv.addEventListener('click', () => {
                 window.location.href = `product-details.html?id=${id}`;
             });
             shop.appendChild(itemDiv);
@@ -49,19 +41,13 @@ let generatorShop = (itemsToDisplay = shopItemsData) => { // Default to all item
     }
 };
 
-// Initial call to display all products
 generatorShop();
 
-// These functions (increement, decreement, update) are not directly used on index.html anymore for interaction
-// They are kept here for completeness if cart.js relies on their global presence,
-// but they will primarily be called from product-details.js and cart.js itself.
-// The logic for them will reside on the product-details page.
-
-// However, we still need 'calculation' on index.html to update the navbar cart icon.
+// --- Update cart icon number ---
 let calculation = () => {
     let cartItem = document.getElementById("cartAmount");
     if (cartItem) {
-        let basket = JSON.parse(localStorage.getItem("data")) || []; // Ensure basket is fresh
+        let basket = JSON.parse(localStorage.getItem("data")) || [];
         cartItem.innerText = basket
             .map((x) => x.item)
             .reduce((x, y) => x + y, 0);
@@ -70,9 +56,7 @@ let calculation = () => {
 
 calculation();
 
-
-// --- Search and Filter Logic (remains the same) ---
-
+// --- Search and Filter Logic ---
 const performSearch = () => {
     if (!searchInput) {
         console.error("Search input element not found!");
@@ -92,15 +76,14 @@ if (searchButton) {
 }
 
 if (searchInput) {
-    searchInput.addEventListener('keyup', (event) => {
+    searchInput.addEventListener('keyup', () => {
         performSearch();
     });
 }
 
-// Category Filtering (assuming this logic is in main.js as well)
-const allCategoriesBtn = document.getElementById('allCategoriesBtn');
+// --- Dynamic Category Links & Dropdown Logic ---
 const categoryDropdown = document.getElementById('categoryDropdown');
-const topMenuItems = document.querySelector('.top-menu-items'); // Assuming you want to hide/show this with categories
+const allCategoriesBtn = document.getElementById('allCategoriesBtn');
 
 if (categoryDropdown && allCategoriesBtn) {
     categoryDropdown.innerHTML = '';
@@ -114,12 +97,11 @@ if (categoryDropdown && allCategoriesBtn) {
         generatorShop(shopItemsData);
         categoryDropdown.classList.remove('show');
     });
-        categoryDropdown.appendChild(allLink);
+    categoryDropdown.appendChild(allLink);
 
-         const categories = [...new Set(shopItemsData.map(item => item.category))];
+    const categories = [...new Set(shopItemsData.map(item => item.category))];
 
-
-        categories.forEach(category => {
+    categories.forEach(category => {
         const categoryLink = document.createElement('a');
         categoryLink.href = "#";
         categoryLink.dataset.category = category;
@@ -133,18 +115,14 @@ if (categoryDropdown && allCategoriesBtn) {
         categoryDropdown.appendChild(categoryLink);
     });
 
-
-allCategoriesBtn.addEventListener('click', (event) => {
+    allCategoriesBtn.addEventListener('click', (event) => {
         event.stopPropagation();
         categoryDropdown.classList.toggle('show');
     });
 
-
-     document.addEventListener('click', (event) => {
+    document.addEventListener('click', (event) => {
         if (!allCategoriesBtn.contains(event.target) && !categoryDropdown.contains(event.target)) {
             categoryDropdown.classList.remove('show');
         }
     });
-
 }
-

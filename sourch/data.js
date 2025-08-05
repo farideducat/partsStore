@@ -258,5 +258,23 @@ let shopItemsData = [
         "images/mens.jpg"
     ],
     category: "Men's Fashion"
-  }
+  },
+
+   {
+    id: "sdfff",
+    name: "hyundai kia  ignition coil 273012b010",
+    price: "7",
+    description: "OEM: 273012b010  New High Performance Ignition Coil 273012B010 For Hyundai I30 ACCENT ELANTRA KIA K2 K3 SOUL 1.6L CEED Cerato VENGA RIA fit for kia rio, hyundai accent, kia careto, elentra , all 1.6cc engine!",
+    img:  "images/273002e000.1.jpg",
+    images: [
+      "images/273002e000.1.jpg",
+      "images/273012b0101.jpg",
+      "images/273012b0102.jpg", 
+      "images/273012b0103.jpg", 
+      "images/273012b0104.jpg", 
+      "images/273012b0105.jpg", 
+      "images/273012b0106.jpg", 
+    ],
+    category: "Toyota Parts"
+  },
 ];

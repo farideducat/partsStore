@@ -158,10 +158,3 @@ if (label && shoppingCart) {
     generateCartItems();
     totalAmount();
 }
-
-
-
-
-
-
-

@@ -730,21 +730,23 @@ a {
 .contact {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     justify-content: center;
     padding: 40px 20px;
-    background-color: #0f0f0f;
+    background-color:white;
+    object-fit: contain;
 }
 
 .contact h3 {
     font-size: 40px;
-    text-align: center;
+    text-align: left;
     margin-bottom: 10px;
-    color: white;
+    padding-left: 200px;
+    color: rgb(28, 27, 27);
 }
 
 .contact form {
-    width: 100%;
+    width: 50%;
     max-width: 600px;
     padding: 0 20px;
     text-align: center;
@@ -769,7 +771,7 @@ form .input-box {
 
 .field .tex-error {
     font-size: 14px;
-    color: white; /* Changed from red to white for better contrast on dark bg */
+    color: rgb(41, 39, 39); /* Changed from red to white for better contrast on dark bg */
     text-align: left;
     margin: -5px 0 12px;
     display: none;
@@ -786,11 +788,11 @@ form .textarea-field .tex-error {
 .field .item {
     width: 100%;
     padding: 18px;
-    border: 2px solid white;
+    border: 2px solid rgb(21, 16, 16);
     border-radius: 6px;
     outline: none;
     font-size: 16px;
-    color: #dbe1d1;
+    color: #0e0f0d;
     margin: 12px 0;
     background-color: transparent;
 }
@@ -800,7 +802,7 @@ form .textarea-field .tex-error {
 }
 
 .field .item::placeholder {
-    color: rgba(206, 206, 206, 0.7); /* Slightly more transparent placeholder */
+    color: rgba(19, 17, 17, 0.7); /* Slightly more transparent placeholder */
 }
 
 form .textarea-field .item {
@@ -815,7 +817,7 @@ form button {
     border-radius: 6px;
     box-shadow: 0 0 10px #1ec17b;
     font-size: 16px;
-    color: whitesmoke;
+    color: rgb(245, 245, 245);
     letter-spacing: 1px;
     font-weight: 600;
     cursor: pointer;

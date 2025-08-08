@@ -730,23 +730,22 @@ a {
 .contact {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     justify-content: center;
     padding: 40px 20px;
     background-color:white;
-    object-fit: contain;
+    object-fit: contains;
 }
 
 .contact h3 {
     font-size: 40px;
-    text-align: left;
+    text-align: center;
     margin-bottom: 10px;
-    padding-left: 200px;
     color: rgb(28, 27, 27);
 }
 
 .contact form {
-    width: 50%;
+    width: 100%;
     max-width: 600px;
     padding: 0 20px;
     text-align: center;
@@ -1298,3 +1297,271 @@ footer {
 }
 
 
+/* ==================================== */
+/* styling for dynamic shipping address */
+/* ==================================== */
+.checkout-page-layout {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+    gap: 30px;
+    margin-top: 20px;
+    height: fit-content;
+}
+
+.checkout-details {
+    flex: 2; /* Takes up more space */
+    min-width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    height: fit-content;
+}
+
+.order-summary-card {
+    flex: 1; /* Takes up less space */
+    min-width: 280px;
+    background-color: hsl(0, 0%, 100%);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    height: fit-content; /* Adjust height to content */
+}
+
+.checkout-details h3, .order-summary-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+
+
+
+.shipping-address-section form {
+   margin-top: 20px;
+   height: fit-content;
+}
+
+.shipping-address-section .form-group{
+    margin-bottom: 15px;
+   text-align: left;
+}
+
+.shipping-address-section .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600px;
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.shipping-address-section .form-group input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #353434;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+
+}
+
+ 
+.shipping-address-section .save-address-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+    margin-top: 20px;
+}
+
+.shipping-address-section .save-address-btn:hover{
+    background-color: #757574;
+}
+
+.warning-message {
+    background-color: #fff3cd;
+    color: #664d03;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.warning-message i {
+    color: #ffc107;
+}
+
+/* Payment Methods Section */
+.payment-methods-section .payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+}
+.payment-methods-section .payment-options input[type="radio"] {
+    margin-right: 5px;
+    
+}
+
+.payment-methods-section .card-icons i {
+    font-size: 3rem;
+    margin-left: 5px;
+    color: #1e1b1b;
+}
+
+
+
+
+
+
+
+
+/////////////////////////////////////////
+
+
+
+/* Order Items Section */
+.checkout-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkout-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+}
+
+.checkout-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.checkout-item-details {
+    flex-grow: 1;
+}
+
+.checkout-item-details p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.checkout-item-details .price {
+    font-weight: 600;
+    color: #ff5400;
+    margin-top: 5px;
+}
+
+.checkout-item-quantity {
+    font-size: 0.9rem;
+    color: #777;
+    white-space: nowrap;
+}
+
+/* Order Summary Card */
+.order-summary-card .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.order-summary-card .summary-row.total-row {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 15px;
+}
+
+.order-summary-card hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+.place-order-btn {
+    background-color: #ff5400;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 20px;
+}
+
+.place-order-btn:hover {
+    background-color: #e04a00;
+}
+
+.order-terms {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.order-terms a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.buyer-protection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #e6ffe6;
+    color: #1e7e34;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.buyer-protection i {
+    font-size: 1.2rem;
+    color: #28a745;
+}
+
+/* Responsive adjustments for Checkout Page */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column; /* Stack columns vertically */
+        padding: 0 10px;
+    }
+
+    .checkout-details, .order-summary-card {
+        flex: 1 1 100%; /* Take full width */
+        min-width: unset;
+    }
+}

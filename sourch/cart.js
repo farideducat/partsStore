@@ -139,7 +139,7 @@ let totalAmount =  ()=> {
    
    label.innerHTML  =` 
      <h2> TOTAL bill : OMR ${amount.toFixed(2)}</h2>
-       <button class="checkout">checkout</button>
+       <button   onclick="window.location.href='checkout.html'" class="checkout">checkout</button>
          <button onclick="clearCart()" class="removeAll">clear All </button>
    `;
        } else{

@@ -1,0 +1,136 @@
+CSS
+
+/* ==================================== */
+/* Checkout Page Styling (checkout.html) */
+/* ==================================== */
+
+
+
+
+/* Order Items Section */
+.checkout-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkout-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+}
+
+.checkout-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.checkout-item-details {
+    flex-grow: 1;
+}
+
+.checkout-item-details p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.checkout-item-details .price {
+    font-weight: 600;
+    color: #ff5400;
+    margin-top: 5px;
+}
+
+.checkout-item-quantity {
+    font-size: 0.9rem;
+    color: #777;
+    white-space: nowrap;
+}
+
+/* Order Summary Card */
+.order-summary-card .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.order-summary-card .summary-row.total-row {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 15px;
+}
+
+.order-summary-card hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+.place-order-btn {
+    background-color: #ff5400;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 20px;
+}
+
+.place-order-btn:hover {
+    background-color: #e04a00;
+}
+
+.order-terms {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.order-terms a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.buyer-protection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #e6ffe6;
+    color: #1e7e34;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.buyer-protection i {
+    font-size: 1.2rem;
+    color: #28a745;
+}
+
+/* Responsive adjustments for Checkout Page */
+@media (max-width: 768px) {
+    .checkout-container {
+        flex-direction: column; /* Stack columns vertically */
+        padding: 0 10px;
+    }
+
+    .checkout-details, .order-summary-card {
+        flex: 1 1 100%; /* Take full width */
+        min-width: unset;
+    }
+}

@@ -1,7 +1,7 @@
-
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 let label = document.getElementById('label');
 let shoppingCart = document.getElementById("shopping-cart");
-let basket = JSON.parse(localStorage.getItem("data")) || [];
+
 
 
 
@@ -30,7 +30,7 @@ if(cartItem){  //add check if cartitem existance
                            <p>${name}</p>
                           <p class="cart-item-price"> OMR ${price}</p>
                          </h4>
-                       <i onclick="removeItems('${id}')" <i class="bi bi-trash3-fill"></i>
+                       <i onclick="removeItems('${id}')" class="bi bi-trash3-fill"></i>
                     </div>
                     <div class="buttons">
                         <i onclick="decreement('${id}')" class="bi bi-dash-lg"></i>

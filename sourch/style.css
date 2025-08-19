@@ -1317,7 +1317,7 @@ footer {
 .checkout-details {
     flex: 2; /* Takes up more space */
     min-width: 300px;
-    background-color: white;
+    background-color: hsla(0, 2%, 68%, 0.808);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -1327,7 +1327,7 @@ footer {
 .order-summary-card {
     flex: 1; /* Takes up less space */
     min-width: 280px;
-    background-color: hsl(0, 0%, 100%);
+    background-color: hsla(0, 8%, 56%, 0.288);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
@@ -1428,22 +1428,13 @@ footer {
 }
 
 
-
-
-
-
-
-
-/////////////////////////////////////////
-
-
-
 /* Order Items Section */
 .checkout-items-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
+
 
 .checkout-item {
     display: flex;
@@ -1461,6 +1452,7 @@ footer {
     object-fit: contain;
     border-radius: 4px;
 }
+
 
 .checkout-item-details {
     flex-grow: 1;
@@ -1484,14 +1476,17 @@ footer {
     white-space: nowrap;
 }
 
+
+
 /* Order Summary Card */
 .order-summary-card .summary-row {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
     font-size: 1rem;
-    color: #555;
+    color: #555;;
 }
+
 
 .order-summary-card .summary-row.total-row {
     font-size: 1.2rem;
@@ -1524,6 +1519,8 @@ footer {
     background-color: #e04a00;
 }
 
+
+
 .order-terms {
     font-size: 0.8rem;
     color: #777;
@@ -1532,7 +1529,7 @@ footer {
 }
 
 .order-terms a {
-    color: #007bff;
+    color: #7700ff;
     text-decoration: underline;
 }
 
@@ -1547,6 +1544,7 @@ footer {
     margin-top: 20px;
     font-size: 0.9rem;
 }
+
 
 .buyer-protection i {
     font-size: 1.2rem;

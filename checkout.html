@@ -9,117 +9,130 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-       <div class="navbar">
-            <a href="index.html">
-                <h2>Farid Express</h2>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="navbar-top-row">
+            <a href="index.html"><h2>Farid Express</h2></a>
+            <a href="cart.html">
+                <div class="CART">
+                    <i class="bi bi-cart2"></i>
+                    <div class="cartAmount" id="cartAmount">0</div>
+                </div>
             </a>
         </div>
+    </div>
 
-        <main class="checkout-page-layout">
-            <div class="checkout-container">
-                <div class="checkout-details">
-                <!-- Shipping Address Section - Dynamically -->
-                 <section class="shipping-address-section">
-                    <h3>shipping Address</h3>
-                    <form class="shipping-address-form">
+    <!-- Checkout Layout -->
+    <main class="checkout-page-layout">
+        <div class="checkout-container">
+            
+            <!-- Left Column: Shipping + Payment + Items -->
+            <div class="checkout-details">
+                
+                <!-- Shipping Address -->
+                <section class="shipping-address-section">
+                    <h3>Shipping Address</h3>
+                    <form id="shipping-address-form">
                         <div class="form-group">
                             <label for="full-name">Full Name</label>
-                            <input type="text" id="full-name" name="fullName" required>
+                            <input type="text" id="full-name" name="full-name" required>
                         </div>
                         <div class="form-group">
                             <label for="phone-number">Phone Number</label>
-                            <input type="tel" id="phone-number" name="phoneNumber" required>
+                            <input type="tel" id="phone-number" name="phone-number" required>
                         </div>
                         <div class="form-group">
                             <label for="street-address">Street Address</label>
-                            <input type="text" id="street-address" name="streetAddress" required>
+                            <input type="text" id="street-address" name="street-address" required>
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
                             <input type="text" id="city" name="city" required>
                         </div>
                         <div class="form-group">
-                            <label for="postal-code">Postal </label>
-                            <input type="text" id="postal-code" name="postalCode" required>
+                            <label for="postal-code">Postal Code</label>
+                            <input type="text" id="postal-code" name="postal-code" required>
                         </div>
                         <div class="form-group">
                             <label for="country">Country</label>
                             <input type="text" id="country" name="country" required>
                         </div>
-                        <button type="submit" class="save-address-btn"> Save Address</button>
+                        <button type="submit" class="save-address-btn">Save Address</button>
                     </form>
                     <div class="warning-message" id="address-warning-message" style="display:none;">
-                         <i class="bi bi-exclamation-triangle-fill"></i> Please fill in your shipping address details.
+                        <i class="bi bi-exclamation-triangle-fill"></i> Please fill in your shipping address details.
                     </div>
-                 </section>
-                 <hr>
-                   <!-- Payment Methods Section -->
-                    <section class="payment-methods-section">
-                        <h3>payment-method</h3>
-                        <div class="payment-options">
-                            <label class="payment-option">
-                                <input type="radio" name="payment-method" value="new-card">
-                                Add a new card
-                            <div class="card-icons">
-                                <i class="bi bi-credit-card-fill"></i>
-                                <i class="bi bi-paypal"></i>
-                                <i class="bi bi-google"></i>
-                                <i class="bi bi-apple"></i>
-                            </div>
-                            </label>
-                        </div>
-                    </section>
-                    <hr>
-                    
-                <!-- Order Items Section -->
-                 <section class="order-items-section">
+                </section>
+
+                <hr>
+
+                <!-- Payment Methods Section -->
+                <section class="payment-methods-section">
+                    <h3>Payment Method</h3>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="card" checked>
+                            Credit / Debit Card
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="paypal">
+                            PayPal
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="cod">
+                            Cash on Delivery
+                        </label>
+                    </div>
+                </section>
+
+                <hr>
+                
+                <!-- Order Items -->
+                <section class="order-items-section">
                     <h3>Order Items</h3>
-                    <div id="checkout-items-container"  class="checkout-items-container">
-                        <!-- Cart items will be dynamically loaded here -->
+                    <div id="checkout-items-container" class="checkout-items-container">
+                        <!-- Cart items dynamically inserted -->
                     </div>
-                 </section>
-             </div>
+                </section>
+            </div>
 
-                 <!-- Order Summary Section -->
-                  <div class="order-summary-card">
-                    <h3>Summary</h3>
-                    <div class="summary-row">
-                        <span>Subtotal:</span>
-                        <span id="summary-subtotal">OMR 0.00</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>promo Code:</span>
-                       <span>Enter <i class="bi bi-chevron-right"></i></span>
-                    </div>
-                    <div class="summary-row total-row">
-                        <span>Total:</span>
-                        <span id="summary-total">OMR 0.00</span>
-                    </div>
-                    <hr>
-                    <div class="summary-row">
-                        <span>Subtotal:</span>
-                        <span id="summary-subtotal">OMR 0.00</span>
-                    </div>
-                    <button id="place-order-btn" class="place-order-btn">Place Order</button>
-                     <p class="order-terms">Upon clicking "Place Order", I confirm I have read and acknowledged all <a href="#">terms and policies</a>.</p>
-                     <div class="buyer-protection">
-                        <i class="bi bi-shield-fill-check"></i>
-                        <span>buyer Protection</span>
-                        <p>Get a full refund if the item is not as described or not delivered</p>
-                     </div>
-                  </div>
-              </div>
-        </main>
+            <!-- Right Column: Order Summary -->
+            <div class="order-summary-card">
+                <h3>Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="summary-subtotal">OMR 0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping fee:</span>
+                    <span id="summary-shipping">OMR 0.00</span>
+                </div>
+                <hr>
+                <div class="summary-row total-row">
+                    <span>Total:</span>
+                    <span id="summary-total">OMR 0.00</span>
+                </div>
+                <button id="place-order-btn" class="place-order-btn">Place Order</button>
+                <p class="order-terms">Upon clicking "Place Order", I confirm I have read and acknowledged all 
+                    <a href="#">terms and policies</a>.
+                </p>
+                <div class="buyer-protection">
+                    <i class="bi bi-shield-fill-check"></i>
+                    <span>Buyer Protection</span>
+                    <p>Get a full refund if the item is not as described or not delivered.</p>
+                </div>
+            </div>
+        </div>
+    </main>
 
-         <footer>
-        <h2>forwarded By fareed Express</h2>
+    <footer>
+        <h2>Forwarded By Farid Express</h2>
     </footer>
-
-        <!-- Scripts -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Scripts -->
     <script src="sourch/data.js"></script>
-    <script src="sourch/main.js"></script> <!-- For navbar functionality -->
-    <script src="sourch/cart.js"></script> <!-- For basket access and calculation -->
-    <script src="sourch/checkout.js"></script> <!-- New script for checkout page logic -->
-    
+    <script src="sourch/main.js"></script>
+    <script src="sourch/cart.js"></script>
+    <script src="sourch/checkout.js"></script>
 </body>
 </html>

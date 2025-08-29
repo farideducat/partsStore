@@ -12,7 +12,6 @@ if(cartItem){  //add check if cartitem existance
    }
 };
    calculation(); // Call calculation on load to update navbar cart amount
-
    let generateCartItems  = () => {
     //only proceed if shopping cart exist on the page
     if(shoppingCart) { 

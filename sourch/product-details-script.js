@@ -132,7 +132,7 @@ let addToCart = (id) => {
     calculation();
     const messageContainer = document.getElementById('add-to-cart-message');
     if (messageContainer) {
-        messageContainer.innerHTML = 'Item added to cart!';
+        messageContainer.innerHTML = ` <a href="checkout.html"> <button> add to cart Items </button> </a>`;
         messageContainer.style.color = 'green';
         setTimeout(() => messageContainer.innerHTML = '', 3000);
     }

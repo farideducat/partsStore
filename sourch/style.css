@@ -572,39 +572,88 @@ a {
 /* ==================================== */
 /* Cart Page (cart.html) */
 /* ==================================== */
+   .cart-page{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+   }
 
-.text-container {
-    text-align: center;
-    padding: 30px 20px;
-}
+   .cart-items-container{
+      flex: 2;
+      background: #e3e0e0;
+      padding: 20px;
+      border: 1px solid black;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 
-.text-container h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
+   }
+   .cart-items-container h2{
+        margin-bottom: 15px;
+     
+   }
+    .cart-summary{
+        flex: 1;
+        background: #f2f0f0;
+        padding: 20px;
+         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .cart-summary h3{
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+    }
+    .summary-box{
+        font-size: 1.3rem;
 
-.HomeBtn, .checkout, .removeAll {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 6px;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-top: 10px;
-    margin: 0 5px; /* Added horizontal margin */
-}
+    }
 
-.checkout {
-    background-color: green;
-}
-.removeAll {
-    background-color: red;
-}
+    .summary-row{
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        color: #444;
+    }
 
-.HomeBtn:hover, .checkout:hover, .removeAll:hover {
-    opacity: 0.9;
-}
+    .total-row{
+        font-weight: bold;
+        font-size: 1.2rem;
+        border-top: 1px solid #989292;
+        padding-top: 10px;
+
+    }
+    .checkout{
+        width: 100%;
+         background: #ff4500;
+         margin-top: 15px;
+         font-size: 1rem;
+         padding: 10px;
+         border-radius: 50px;
+
+    }
+      .removeAll{
+        background-color: black;
+        margin-top: 20px;
+        width: 100%;
+        border-radius: 50px;
+        color: white;
+        font-size: 1rem;
+       
+    
+      }
+
+
+      .removeAll:hover{
+        background-color: rgb(162, 155, 155);
+      }
+
+
+   .checkout:hover{
+    background-color: rgb(83, 150, 60);
+   }
+
+
 
 
 .shopping-cart {

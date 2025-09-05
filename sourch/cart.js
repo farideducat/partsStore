@@ -1,8 +1,8 @@
-let basket = JSON.parse(localStorage.getItem("data")) || [];
+
 let label = document.getElementById('label');
 let shoppingCart = document.getElementById("shopping-cart");
 
-
+let basket = JSON.parse(localStorage.getItem("data")) || [];
 
 
 let calculation = () => { 
@@ -129,24 +129,33 @@ let removeItems = (id) => {
 
 let totalAmount =  ()=> {
       if(label){
-      if(basket.length !==0){
-      let amount = basket.map((x)=> {
-      let {item, id} = x;
-      let search =  shopItemsData.find((y) => y.id === id ) || { price: 0 };
-       return item * parseFloat(search.price || 0);
-   }).reduce((x,y)=> x + y, 0);
+        if(basket.length !==0){
+          let amount = basket
+          .map((x)=> {
+          let {item, id} = x;
+          let search =  shopItemsData.find((y) => y.id === id ) || { price: 0 };
+         return item * parseFloat(search.price || 0);
+         })
+         .reduce((x,y)=> x + y, 0);
    
-   label.innerHTML  =` 
-     <h2> TOTAL bill : OMR ${amount.toFixed(2)}</h2>
-       <button   onclick="window.location.href='checkout.html'" class="checkout">checkout</button>
-         <button onclick="clearCart()" class="removeAll">clear All </button>
+         label.innerHTML  =` 
+         <div class="summary-row">
+         <span>Subtotal:</span>
+         <span> OMR ${amount.toFixed(2)}</span>
+         </div>
+         <div class="summary-row total-row">
+         <span>Estimated Total:</total>
+          <span>OMR ${amount.toFixed(2)}</span>
+          </div>
+         <button onclick="window.location.href='checkout.html'" class="checkout">checkout</button>
+         <button onclick="clearCart()" class="removeAll"> Delete All Product </button>
    `;
        } else{
           label.innerHTML = `
              <h2>CART IS EMPTY</h2>
              <a href="./index.html">
-                    <button class="HomeBtn">Back To HomePage</button>
-                </a>
+             <button class="HomeBtn">Back To HomePage</button>
+            </a>
           `;
   
         }

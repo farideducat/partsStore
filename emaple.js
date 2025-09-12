@@ -191,3 +191,148 @@ let updateCartTotals = () => {
 if (shoppingCart) {
     generateCartItems();
 }
+
+
+
+
+.quantity-control .quantity {
+    font-weight: 600;
+    font-size: 1rem;
+    min-width: 25px;
+    text-align: center;
+}
+
+.item-total-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #333;
+    margin-top: 10px;
+    text-align: right; /* Aligns the price to the right */
+}
+
+.item-actions {
+    margin-left: auto; /* Pushes the actions to the right side of the container */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+    flex-shrink: 0;
+}
+
+.item-actions .bi {
+    font-size: 1.5rem;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.item-actions .bi:hover {
+    color: #000;
+}
+
+/* Empty cart message styling */
+.empty-cart {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.empty-cart h2 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.empty-cart .HomeBtn {
+    background-color: #ff5400;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.empty-cart .HomeBtn:hover {
+    background-color: #e04a00;
+}
+
+/* Order Summary Section */
+.summary-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.summary-row.total-row {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ff5400;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+}
+
+.summary-row.total-row span {
+    font-weight: 800;
+}
+
+.checkout-btn {
+    background-color: #ff5400;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 20px;
+}
+
+.checkout-btn:hover {
+    background-color: #e04a00;
+}
+
+/* Responsive adjustments for the cart page */
+@media (max-width: 992px) {
+    .cart-page-layout {
+        flex-direction: column; /* Stack columns on smaller screens */
+    }
+
+    .summary-section {
+        position: static; /* Remove sticky behavior on small screens */
+        margin-top: 20px;
+    }
+
+    .cart-item {
+        flex-direction: column; /* Stack image and details vertically */
+        align-items: center;
+        text-align: center;
+    }
+
+    .cart-item-details, .item-actions {
+        align-items: center; /* Center-align text and icons */
+    }
+
+    .item-actions {
+        margin-left: 0; /* Remove auto margin to center actions */
+        flex-direction: row;
+        gap: 20px;
+        margin-top: 15px;
+    }
+}
+/* ... (existing CSS from line 789 to the end should be kept) ... */

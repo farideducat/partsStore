@@ -148,3 +148,6 @@ allCategoriesBtn.addEventListener('click', (event) => {
 
 }
 
+
+
+

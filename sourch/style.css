@@ -1673,3 +1673,47 @@ footer {
         min-width: unset;
     }
 }
+
+
+/* Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.bottom-nav .nav-item {
+  flex: 1;
+  text-align: center;
+  color: #333;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.bottom-nav .nav-item i {
+  font-size: 1.4rem;
+  margin-bottom: 3px;
+}
+
+.bottom-nav .cartAmount {
+  position: absolute;
+  top: 5px;
+  right: 30%;
+  font-size: 12px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 5px;
+}
+
